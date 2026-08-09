@@ -1,6 +1,6 @@
 # Dragomir Mîndrescu — Portfolio
 
-A responsive portfolio for iOS product engineer Dragomir Mîndrescu, built with Next.js, React, and TypeScript.
+A responsive portfolio for iOS engineer Dragomir Mîndrescu, built with Next.js, React, and TypeScript.
 
 ## Local development
 

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const projects = [
@@ -14,6 +15,11 @@ const projects = [
     tags: ["Swift 6", "SwiftUI", "SwiftData", "Foundation Models", "PDFKit"],
     github: "https://github.com/VintusS/Daily-Swift",
     tone: "violet",
+    screenshots: [
+      { src: "/projects/daily-swift/01.png", alt: "Daily Swift Today screen", kind: "phone" },
+      { src: "/projects/daily-swift/02.png", alt: "Daily Swift lesson screen", kind: "phone" },
+      { src: "/projects/daily-swift/03.png", alt: "Daily Swift source citation screen", kind: "phone" },
+    ],
   },
   {
     id: "fitkate",
@@ -26,6 +32,11 @@ const projects = [
     tags: ["SwiftUI", "SwiftData", "AVFoundation", "CryptoKit", "XCTest"],
     github: "https://github.com/VintusS/Fit-Kate",
     tone: "orange",
+    screenshots: [
+      { src: "/projects/fitkate/01.png", alt: "FitKate dashboard", kind: "phone" },
+      { src: "/projects/fitkate/02.png", alt: "FitKate workout editor", kind: "phone" },
+      { src: "/projects/fitkate/03.png", alt: "FitKate live session timer", kind: "phone" },
+    ],
   },
   {
     id: "swiftbuilder",
@@ -38,6 +49,10 @@ const projects = [
     tags: ["SwiftUI", "AppKit", "Codable", "simctl", "devicectl"],
     github: "https://github.com/VintusS/SwiftBuilder",
     tone: "blue",
+    screenshots: [
+      { src: "/projects/swiftbuilder/01.png", alt: "SwiftBuilder macOS workspace", kind: "desktop" },
+      { src: "/projects/swiftbuilder/02.png", alt: "SwiftBuilder iPhone preview", kind: "phone" },
+    ],
   },
   {
     id: "poschore",
@@ -50,6 +65,11 @@ const projects = [
     tags: ["Core Motion", "SwiftUI", "SwiftData", "AirPods", "Privacy"],
     github: "https://github.com/VintusS/Poschore",
     tone: "mint",
+    screenshots: [
+      { src: "/projects/poschore/01.png", alt: "Poschore calibration screen", kind: "phone" },
+      { src: "/projects/poschore/02.png", alt: "Poschore active tracking screen", kind: "phone" },
+      { src: "/projects/poschore/03.png", alt: "Poschore aligned state", kind: "phone" },
+    ],
   },
 ];
 
@@ -75,7 +95,7 @@ const experience = [
   {
     company: "Extole",
     role: "Frontend Technical Support Engineer",
-    period: "Jan 2024 — May 2025",
+    period: "Sep 2023 — May 2025",
     detail: "Enterprise integrations across JavaScript, web experiences, and mobile SDKs.",
   },
 ];
@@ -94,6 +114,44 @@ const skills = [
   "XCTest",
   "Product Engineering",
 ];
+
+type ProjectScreenshot = {
+  src: string;
+  alt: string;
+  kind: string;
+};
+
+function ProjectScreenshotGallery({ screenshots, title }: { screenshots: ProjectScreenshot[]; title: string }) {
+  const [loaded, setLoaded] = useState<string[]>([]);
+
+  const markLoaded = (src: string) => {
+    setLoaded((current) => current.includes(src) ? current : [...current, src]);
+  };
+
+  return (
+    <div
+      className={`project-screenshot-gallery ${loaded.length ? "is-ready" : ""} count-${loaded.length}`}
+      aria-label={`${title} screenshots`}
+    >
+      {screenshots.map((screenshot) => (
+        <figure
+          className={`screenshot-frame screenshot-${screenshot.kind} ${loaded.includes(screenshot.src) ? "is-loaded" : ""}`}
+          key={screenshot.src}
+        >
+          <Image
+            src={screenshot.src}
+            alt={screenshot.alt}
+            fill
+            sizes={screenshot.kind === "desktop" ? "(max-width: 600px) 80vw, 40vw" : "(max-width: 600px) 38vw, 16vw"}
+            unoptimized
+            loading="lazy"
+            onLoad={() => markLoaded(screenshot.src)}
+          />
+        </figure>
+      ))}
+    </div>
+  );
+}
 
 function ProjectVisual({ id }: { id: string }) {
   if (id === "daily-swift") {
@@ -232,10 +290,10 @@ export default function Home() {
           <div className="hero-glow glow-one" />
           <div className="hero-glow glow-two" />
           <div className="hero-copy">
-            <p className="eyebrow hero-enter delay-1"><span /> iOS product engineer · Chișinău</p>
-            <h1 className="hero-enter delay-2">Building calm software for <em>complex lives.</em></h1>
+            <p className="eyebrow hero-enter delay-1"><span /> iOS engineer · Chișinău</p>
+            <h1 className="hero-enter delay-2">Extending what’s possible across <em>Apple platforms.</em></h1>
             <p className="hero-summary hero-enter delay-3">
-              I turn complicated workflows into thoughtful Apple-platform products—from production telecom and banking experiences to ambitious local-first apps of my own.
+              I build native experiences that connect the strengths of iPhone, Mac, AirPods, Wallet, widgets, voice, and on-device intelligence—turning platform capabilities into products people can rely on.
             </p>
             <div className="hero-actions hero-enter delay-4">
               <a className="button button-primary" href="#work">Explore selected work <span>↓</span></a>
@@ -291,6 +349,7 @@ export default function Home() {
                   </a>
                 </div>
                 <div className={`project-visual tone-${project.tone}`}>
+                  <ProjectScreenshotGallery screenshots={project.screenshots} title={project.title} />
                   <ProjectVisual id={project.id} />
                 </div>
               </article>
@@ -314,7 +373,7 @@ export default function Home() {
             <h2>Evidence over adjectives.</h2>
           </div>
           <div className="stats-grid">
-            <div data-reveal><strong>3<sup>+</sup></strong><span>years building software</span></div>
+            <div data-reveal><strong>’23</strong><span>building software professionally since</span></div>
             <div data-reveal><strong>2</strong><span>products shipped to the App Store</span></div>
             <div data-reveal><strong>2</strong><span>hackathon recognitions</span></div>
             <div data-reveal><strong>33</strong><span>public GitHub repositories</span></div>
@@ -348,7 +407,7 @@ export default function Home() {
                 I’m Dragomir, an iOS engineer based in Chișinău. I care about the hidden work behind simple interfaces: reliable state, honest failure modes, accessible interaction, and architecture that stays understandable after launch day.
               </p>
               <p>
-                I earned my Software Engineering degree from the Technical University of Moldova, where my bachelor thesis became SwiftBuilder—a native visual prototyping environment for iOS.
+                At the Technical University of Moldova, my bachelor thesis became SwiftBuilder—a native macOS environment for visually composing, exporting, and running SwiftUI prototypes.
               </p>
             </div>
           </div>

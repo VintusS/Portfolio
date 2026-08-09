@@ -13,9 +13,9 @@ const siteUrl = deploymentHost
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Dragomir Mîndrescu — iOS Product Engineer",
+  title: "Dragomir Mîndrescu — iOS Engineer",
   description:
-    "The portfolio of Dragomir Mîndrescu, an iOS product engineer building thoughtful, privacy-conscious Apple-platform experiences.",
+    "The portfolio of Dragomir Mîndrescu, an iOS engineer extending what is possible across Apple platforms.",
   keywords: ["Dragomir Mîndrescu", "iOS engineer", "Swift", "SwiftUI", "Chișinău", "portfolio"],
   authors: [{ name: "Dragomir Mîndrescu" }],
   creator: "Dragomir Mîndrescu",
@@ -23,16 +23,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Dragomir Mîndrescu — iOS Product Engineer",
-    description: "Building calm software for complex lives.",
+    title: "Dragomir Mîndrescu — iOS Engineer",
+    description: "Extending what’s possible across Apple platforms.",
     siteName: "Dragomir Mîndrescu",
-    images: [{ url: `${siteUrl}/og.png`, width: 1672, height: 941, alt: "Dragomir Mîndrescu, iOS Product Engineer" }],
+    images: [{ url: `${siteUrl}/og-v2.png`, width: 1672, height: 941, alt: "Dragomir Mîndrescu, iOS Engineer" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dragomir Mîndrescu — iOS Product Engineer",
-    description: "Building calm software for complex lives.",
-    images: [`${siteUrl}/og.png`],
+    title: "Dragomir Mîndrescu — iOS Engineer",
+    description: "Extending what’s possible across Apple platforms.",
+    images: [`${siteUrl}/og-v2.png`],
   },
 };
 

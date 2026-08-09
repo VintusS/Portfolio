@@ -9,9 +9,9 @@ const projects = [
     number: "01",
     label: "Active product · iPhone",
     title: "Daily Swift",
-    headline: "Learning that can show its work.",
+    headline: "Learn Swift from your own material.",
     description:
-      "A local-first iOS learning companion that turns private source material into cited lessons and practice, without handing curriculum, correctness, or user privacy over to a model.",
+      "Daily Swift turns private source material into cited lessons and quizzes. The app keeps generation and progress on the user's iPhone instead of sending their curriculum to an external model.",
     tags: ["Swift 6", "SwiftUI", "SwiftData", "Foundation Models", "PDFKit"],
     github: "https://github.com/VintusS/Daily-Swift",
     tone: "sky",
@@ -26,9 +26,9 @@ const projects = [
     number: "02",
     label: "Shipped product · App Store",
     title: "FitKate",
-    headline: "A coach’s entire session, in one calm flow.",
+    headline: "Run a coaching session without fighting the app.",
     description:
-      "An offline-first coaching platform with a custom workout compiler, runtime session engine, multilingual audio cues, encrypted backups, and an accessible timer designed to be read across a room.",
+      "FitKate works offline and covers the full session, from workout setup to timed exercise playback. It includes multilingual audio cues, encrypted backups, and a large timer that stays readable across the room.",
     tags: ["SwiftUI", "SwiftData", "AVFoundation", "CryptoKit", "XCTest"],
     github: "https://github.com/VintusS/Fit-Kate",
     tone: "rose",
@@ -43,9 +43,9 @@ const projects = [
     number: "03",
     label: "Bachelor thesis · macOS + iOS",
     title: "SwiftBuilder",
-    headline: "From interface idea to native prototype.",
+    headline: "Design an interface and run the SwiftUI prototype.",
     description:
-      "A visual macOS builder for composing multi-screen interfaces, exporting SwiftUI, and launching prototypes on simulators or connected iPhones through a companion runner.",
+      "SwiftBuilder is a macOS editor for assembling multi-screen interfaces. It exports SwiftUI and launches prototypes in the Simulator or on a connected iPhone through its companion app.",
     tags: ["SwiftUI", "AppKit", "Codable", "simctl", "devicectl"],
     github: "https://github.com/VintusS/SwiftBuilder",
     tone: "green",
@@ -59,9 +59,9 @@ const projects = [
     number: "04",
     label: "Active product · Sensors",
     title: "Poschore",
-    headline: "A gentler signal for better posture.",
+    headline: "A quiet reminder when posture starts to slip.",
     description:
-      "A private posture companion that calibrates to the user’s natural upright position and uses compatible Apple headphone motion data to notice sustained head and neck deviation.",
+      "Poschore calibrates against the user's natural upright position, then reads motion data from compatible Apple headphones. It notices sustained head and neck movement while keeping that data private.",
     tags: ["Core Motion", "SwiftUI", "SwiftData", "AirPods", "Privacy"],
     github: "https://github.com/VintusS/Poschore",
     tone: "blue",
@@ -77,26 +77,26 @@ const experience = [
   {
     company: "Moldcell",
     role: "Middle iOS Developer",
-    period: "Jun 2026 — Present",
-    detail: "Customer-facing telecom journeys, account experiences, and Apple Wallet functionality.",
+    period: "Jun 2026 to present",
+    detail: "I work on customer account flows, telecom services, and Apple Wallet features.",
   },
   {
     company: "maib",
     role: "iOS Developer",
-    period: "Dec 2025 — May 2026",
-    detail: "Product feedback flows and customer-experience improvements for maibank.",
+    period: "Dec 2025 to May 2026",
+    detail: "I improved in-app feedback and customer flows in maibank.",
   },
   {
     company: "Extole",
     role: "Software Engineer",
-    period: "May 2025 — May 2026",
-    detail: "Mobile referral products, reusable modules, and cross-platform delivery.",
+    period: "May 2025 to May 2026",
+    detail: "I built mobile referral products and reusable modules for delivery across platforms.",
   },
   {
     company: "Extole",
     role: "Frontend Technical Support Engineer",
-    period: "Sep 2023 — May 2025",
-    detail: "Enterprise integrations across JavaScript, web experiences, and mobile SDKs.",
+    period: "Sep 2023 to May 2025",
+    detail: "I supported enterprise integrations across JavaScript sites and mobile SDKs.",
   },
 ];
 
@@ -140,11 +140,11 @@ function screenshotUrl(src: string, revision: number) {
 function ScreenshotPlaceholder({ project, label, filename }: { project: string; label: string; filename: string }) {
   return (
     <div className="screenshot-placeholder" aria-hidden="true">
-      <span>Actual app screenshot</span>
+      <span>App screenshot</span>
       <strong>{project}</strong>
       <p>{label}</p>
       <code>{filename}</code>
-      <small>Replace this placeholder with the PNG above</small>
+      <small>Place the PNG at the path above</small>
     </div>
   );
 }
@@ -341,13 +341,13 @@ export default function Home() {
           <div className="hero-glow glow-two" />
           <div className="hero-copy">
             <p className="eyebrow hero-enter delay-1"><span /> iOS engineer · Chișinău</p>
-            <h1 className="hero-enter delay-2">Extending what’s possible across <em>Apple platforms.</em></h1>
+            <h1 className="hero-enter delay-2">I build iOS apps for the whole <em>Apple ecosystem.</em></h1>
             <p className="hero-summary hero-enter delay-3">
-              I build native experiences that connect the strengths of iPhone, Mac, AirPods, Wallet, widgets, voice, and on-device intelligence, turning platform capabilities into products people can rely on.
+              My work spans iPhone, Mac, AirPods, Apple Wallet, widgets, voice, and on-device intelligence. I use each part of the platform when it makes the product better.
             </p>
             <div className="hero-actions hero-enter delay-4">
-              <a className="button button-primary" href="#work">Explore selected work <span>↓</span></a>
-              <a className="text-link" href="mailto:dmindrescu03@gmail.com">Let’s work together <span>↗</span></a>
+              <a className="button button-primary" href="#work">See my work <span>↓</span></a>
+              <a className="text-link" href="mailto:dmindrescu03@gmail.com">Get in touch <span>↗</span></a>
             </div>
           </div>
 
@@ -367,8 +367,8 @@ export default function Home() {
         <section className="work-section" id="work">
           <div className="section-heading" data-reveal>
             <p className="eyebrow"><span /> Selected work</p>
-            <h2>Products with a point of view.</h2>
-            <p>Independent products, experiments, and tools built around privacy, accessibility, and useful complexity.</p>
+            <h2>Apps and tools I&apos;ve built.</h2>
+            <p>These projects began with problems I wanted to solve: learning Swift from private material, running workouts offline, prototyping native interfaces, and improving posture with AirPods.</p>
           </div>
 
           <div className="project-list">
@@ -394,7 +394,7 @@ export default function Home() {
           </div>
 
           <div className="more-work" data-reveal>
-            <div><p className="eyebrow"><span /> More work</p><h3>Small products.<br />Real lessons.</h3></div>
+            <div><p className="eyebrow"><span /> More work</p><h3>A few smaller<br />projects.</h3></div>
             <a href="https://github.com/VintusS/Inpenso" target="_blank" rel="noreferrer">
               <span>Inpenso</span><small>Personal finance · App Store</small><b>↗</b>
             </a>
@@ -407,20 +407,20 @@ export default function Home() {
         <section className="stats-section" aria-label="Career statistics">
           <div className="stat-intro" data-reveal>
             <p className="eyebrow light"><span /> In numbers</p>
-            <h2>Evidence over adjectives.</h2>
+            <h2>The numbers so far.</h2>
           </div>
           <div className="stats-grid">
-            <AnimatedStat value={23} prefix="’" label="building software professionally since" />
+            <AnimatedStat value={23} prefix="'" label="working in software since" />
             <AnimatedStat value={5} label="products shipped to the App Store" />
-            <AnimatedStat value={3} label="hackathon recognitions" />
-            <AnimatedStat value={33} label="Open-source GitHub repositories" />
+            <AnimatedStat value={3} label="hackathon awards and recognitions" />
+            <AnimatedStat value={33} label="public GitHub repositories" />
           </div>
         </section>
 
         <section className="experience-section" id="experience">
           <div className="section-heading compact" data-reveal>
             <p className="eyebrow"><span /> Experience</p>
-            <h2>From support to product ownership.</h2>
+            <h2>How I got here.</h2>
           </div>
           <div className="timeline">
             {experience.map((item, index) => (
@@ -446,9 +446,9 @@ export default function Home() {
             </div>
             <div className="about-copy">
               <p className="eyebrow"><span /> About</p>
-              <h2>Product-minded.<br />Detail-obsessed.<br />Privacy-conscious.<br /><em>User-first.</em></h2>
+              <h2>The parts users<br />do not see still <em>matter.</em></h2>
               <p>
-                I’m Dragomir, an iOS engineer based in Chișinău. I care about the hidden work behind simple interfaces: reliable state, honest failure modes, accessible interaction, and architecture that stays understandable after launch day.
+                I&apos;m Dragomir, an iOS engineer in Chișinău. I spend a lot of time on the work behind the interface: state that survives edge cases, failures that explain themselves, accessible controls, and code the next engineer can still follow.
               </p>
             </div>
           </div>
@@ -460,9 +460,9 @@ export default function Home() {
         <section className="contact-section" id="contact">
           <div className="contact-orb orb-left" /><div className="contact-orb orb-right" />
           <div className="contact-inner" data-reveal>
-            <p className="eyebrow light"><span /> Start a conversation</p>
-            <h2>Have a product that should feel <em>simpler?</em></h2>
-            <p>I’m always interested in thoughtful iOS work, ambitious product problems, and people who care about the details.</p>
+            <p className="eyebrow light"><span /> Get in touch</p>
+            <h2>Need an <em>iOS engineer?</em></h2>
+            <p>I&apos;m interested in iOS work where the product problem is real and the details matter. If that sounds like your team, send me an email.</p>
             <a className="contact-email" href="mailto:dmindrescu03@gmail.com">dmindrescu03@gmail.com <span>↗</span></a>
             <div className="contact-links">
               <a href="https://github.com/VintusS" target="_blank" rel="noreferrer">GitHub ↗</a>
@@ -474,7 +474,7 @@ export default function Home() {
       </main>
 
       <footer>
-        <div><span className="brand-mark">DM</span><p>Designed and built with care in Chișinău.</p></div>
+        <div><span className="brand-mark">DM</span><p>Built in Chișinău.</p></div>
         <p>© 2026 Dragomir Mîndrescu</p>
         <a href="#top">Back to top ↑</a>
       </footer>

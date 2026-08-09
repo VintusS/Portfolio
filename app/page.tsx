@@ -157,7 +157,7 @@ function ProjectScreenshotGallery({ screenshots, title, revision }: { screenshot
 
   return (
     <div
-      className={`project-screenshot-gallery is-ready count-${screenshots.length} ${title === "Daily Swift" ? "daily-swift-gallery" : ""}`}
+      className={`project-screenshot-gallery is-ready count-${screenshots.length}`}
       aria-label={`${title} screenshots`}
     >
       {screenshots.map((screenshot) => (
@@ -437,7 +437,7 @@ export default function Home() {
           <div className="about-card" data-reveal>
             <div className="about-portrait">
               <Image
-                src="/dragomir-mindrescu.png"
+                src="/dragomir-mindrescu.jpg"
                 alt="Dragomir Mîndrescu"
                 fill
                 sizes="(max-width: 860px) calc(100vw - 40px), 42vw"

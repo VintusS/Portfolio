@@ -730,16 +730,6 @@ footer a:hover {
   pointer-events: none;
 }
 
-/* Daily Swift uses a three-phone composition, so it needs less surrounding
-   whitespace than the shared gallery treatment to remain legible at desktop sizes. */
-.daily-swift-gallery {
-  padding: 2.5%;
-}
-
-.daily-swift-gallery .screenshot-phone {
-  max-height: 97%;
-}
-
 .screenshot-frame {
   position: relative;
   flex: 0 0 auto;
@@ -931,6 +921,11 @@ footer a:hover {
   width: 27%;
   margin-left: -14%;
   transform: translateY(12%) rotate(4deg);
+}
+
+/* The SwiftBuilder phone capture already includes its own Dynamic Island. */
+.project-screenshot-gallery .screenshot-desktop + .screenshot-phone::after {
+  display: none;
 }
 
 .phone-frame {
@@ -1497,7 +1492,7 @@ footer a:hover {
 
 .about-portrait img {
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
 }
 
 .about-copy h2 {

@@ -1771,8 +1771,21 @@ footer > a { justify-self: end; color: white; }
   .floating-card-a { left: 1%; }
   .floating-card-b { right: 0; }
 
-  .hero-foot { align-items: flex-start; gap: 22px; }
-  .hero-foot div { align-items: flex-end; flex-direction: column; gap: 8px; }
+  .hero-foot {
+    margin-top: 16px;
+    padding-top: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+
+  .hero-foot div {
+    align-items: baseline;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+  }
 
   .work-section,
   .experience-section,

@@ -730,6 +730,16 @@ footer a:hover {
   pointer-events: none;
 }
 
+/* Daily Swift uses a three-phone composition, so it needs less surrounding
+   whitespace than the shared gallery treatment to remain legible at desktop sizes. */
+.daily-swift-gallery {
+  padding: 2.5%;
+}
+
+.daily-swift-gallery .screenshot-phone {
+  max-height: 97%;
+}
+
 .screenshot-frame {
   position: relative;
   flex: 0 0 auto;

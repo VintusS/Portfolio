@@ -157,7 +157,7 @@ function ProjectScreenshotGallery({ screenshots, title, revision }: { screenshot
 
   return (
     <div
-      className={`project-screenshot-gallery is-ready count-${screenshots.length}`}
+      className={`project-screenshot-gallery is-ready count-${screenshots.length} ${title === "Daily Swift" ? "daily-swift-gallery" : ""}`}
       aria-label={`${title} screenshots`}
     >
       {screenshots.map((screenshot) => (
@@ -358,7 +358,7 @@ export default function Home() {
           </div>
 
           <div className="hero-foot hero-enter delay-4">
-            <p>Currently building at <strong>Moldcell</strong></p>
+            <p>Currently building at <strong>Moldcell Technology</strong></p>
             <div><span>Previously</span><strong>maib</strong><strong>Extole</strong></div>
           </div>
         </section>

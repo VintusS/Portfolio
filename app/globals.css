@@ -847,7 +847,6 @@ footer a:hover {
 
 .screenshot-phone {
   width: 31%;
-  max-height: 91%;
   aspect-ratio: 9 / 19.5;
   border: 4px solid #111216;
   border-radius: clamp(24px, 2.25vw, 32px);
@@ -885,7 +884,7 @@ footer a:hover {
 
 .screenshot-desktop {
   width: 78%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   border: 8px solid #1a1b20;
   border-radius: 18px;
 }
@@ -923,8 +922,8 @@ footer a:hover {
   transform: translateY(12%) rotate(4deg);
 }
 
-/* The SwiftBuilder phone capture already includes its own Dynamic Island. */
-.project-screenshot-gallery .screenshot-desktop + .screenshot-phone::after {
+/* Some captures already include their own Dynamic Island. */
+.screenshot-phone.has-built-in-island::after {
   display: none;
 }
 
@@ -1492,7 +1491,7 @@ footer a:hover {
 
 .about-portrait img {
   object-fit: cover;
-  object-position: center top;
+  object-position: 50% 10%;
 }
 
 .about-copy h2 {

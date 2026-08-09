@@ -51,7 +51,7 @@ const projects = [
     tone: "green",
     screenshots: [
       { src: "/projects/swiftbuilder/01.png", alt: "SwiftBuilder macOS workspace", label: "macOS workspace", kind: "desktop" },
-      { src: "/projects/swiftbuilder/02.png", alt: "SwiftBuilder iPhone preview", label: "iPhone preview", kind: "phone" },
+      { src: "/projects/swiftbuilder/02.png", alt: "SwiftBuilder iPhone preview", label: "iPhone preview", kind: "phone", builtInIsland: true },
     ],
   },
   {
@@ -130,6 +130,7 @@ type ProjectScreenshot = {
   alt: string;
   label: string;
   kind: string;
+  builtInIsland?: boolean;
 };
 
 function screenshotUrl(src: string, revision: number) {
@@ -162,7 +163,7 @@ function ProjectScreenshotGallery({ screenshots, title, revision }: { screenshot
     >
       {screenshots.map((screenshot) => (
         <figure
-          className={`screenshot-frame screenshot-${screenshot.kind} ${loaded.includes(screenshot.src) ? "has-image" : ""}`}
+          className={`screenshot-frame screenshot-${screenshot.kind} ${screenshot.builtInIsland ? "has-built-in-island" : ""} ${loaded.includes(screenshot.src) ? "has-image" : ""}`}
           key={screenshot.src}
         >
           <ScreenshotPlaceholder

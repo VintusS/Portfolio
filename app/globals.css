@@ -1477,59 +1477,17 @@ footer a:hover {
   align-items: center;
 }
 
-.about-monogram {
+.about-portrait {
   position: relative;
   min-height: 600px;
   overflow: hidden;
-  display: grid;
-  place-items: center;
   border-radius: var(--radius);
-  background: linear-gradient(145deg, #27272c, #131316);
+  background: #11151d;
 }
 
-.about-monogram::before,
-.about-monogram::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(1px);
-}
-
-.about-monogram::before {
-  width: 420px;
-  height: 420px;
-  top: -130px;
-  right: -140px;
-  background: radial-gradient(circle at 40% 60%, #7553d8, transparent 67%);
-  opacity: 0.75;
-}
-
-.about-monogram::after {
-  width: 420px;
-  height: 420px;
-  left: -170px;
-  bottom: -170px;
-  background: radial-gradient(circle at 60% 40%, #2677d6, transparent 67%);
-  opacity: 0.64;
-}
-
-.about-monogram span {
-  position: relative;
-  z-index: 1;
-  color: white;
-  font-size: clamp(150px, 18vw, 270px);
-  font-weight: 630;
-  letter-spacing: -0.055em;
-  transform: translateX(-0.06em);
-}
-
-.about-monogram i {
-  position: absolute;
-  z-index: 2;
-  width: 110px;
-  height: 1px;
-  background: white;
-  transform: rotate(-45deg);
+.about-portrait img {
+  object-fit: cover;
+  object-position: center;
 }
 
 .about-copy h2 {
@@ -1778,7 +1736,7 @@ footer > a { justify-self: end; color: white; }
   }
 
   .timeline-detail { grid-column: 2 / -1; }
-  .about-monogram { min-height: 520px; }
+  .about-portrait { min-height: 520px; }
 }
 
 @media (max-width: 600px) {
@@ -1859,7 +1817,7 @@ footer > a { justify-self: end; color: white; }
 
   .timeline-item time { grid-column: 2; grid-row: 2; justify-self: start; }
   .timeline-detail { grid-column: 2; grid-row: 3; }
-  .about-monogram { min-height: 440px; }
+  .about-portrait { min-height: 440px; }
   .skills-cloud { justify-content: flex-start; }
   .contact-section { min-height: 720px; }
   .contact-inner h2 { font-size: 55px; }

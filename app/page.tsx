@@ -11,7 +11,7 @@ const projects = [
     title: "Daily Swift",
     headline: "Learning that can show its work.",
     description:
-      "A local-first iOS learning companion that turns private source material into cited lessons and practice—without handing curriculum, correctness, or user privacy over to a model.",
+      "A local-first iOS learning companion that turns private source material into cited lessons and practice, without handing curriculum, correctness, or user privacy over to a model.",
     tags: ["Swift 6", "SwiftUI", "SwiftData", "Foundation Models", "PDFKit"],
     github: "https://github.com/VintusS/Daily-Swift",
     tone: "sky",
@@ -101,18 +101,28 @@ const experience = [
 ];
 
 const skills = [
-  "Swift",
-  "SwiftUI",
-  "UIKit",
   "SwiftData",
-  "AppKit",
-  "AVFoundation",
+  "Foundation Models",
+  "PDFKit",
   "Core Motion",
+  "CMHeadphoneMotionManager",
+  "Background Tasks",
+  "AVFoundation",
+  "CryptoKit",
   "PassKit",
   "WidgetKit",
-  "Accessibility",
-  "XCTest",
-  "Product Engineering",
+  "AppKit",
+  "Foundation",
+  "Codable",
+  "Swift Concurrency",
+  "Swift Testing",
+  "XCTest / XCUITest",
+  "Swift Package Manager",
+  "SwiftLint",
+  "simctl",
+  "devicectl",
+  "Xcode Command Line Tools",
+  "JSON Persistence",
 ];
 
 type ProjectScreenshot = {
@@ -332,7 +342,7 @@ export default function Home() {
             <p className="eyebrow hero-enter delay-1"><span /> iOS engineer · Chișinău</p>
             <h1 className="hero-enter delay-2">Extending what’s possible across <em>Apple platforms.</em></h1>
             <p className="hero-summary hero-enter delay-3">
-              I build native experiences that connect the strengths of iPhone, Mac, AirPods, Wallet, widgets, voice, and on-device intelligence—turning platform capabilities into products people can rely on.
+              I build native experiences that connect the strengths of iPhone, Mac, AirPods, Wallet, widgets, voice, and on-device intelligence, turning platform capabilities into products people can rely on.
             </p>
             <div className="hero-actions hero-enter delay-4">
               <a className="button button-primary" href="#work">Explore selected work <span>↓</span></a>
@@ -400,9 +410,9 @@ export default function Home() {
           </div>
           <div className="stats-grid">
             <AnimatedStat value={23} prefix="’" label="building software professionally since" />
-            <AnimatedStat value={2} label="products shipped to the App Store" />
-            <AnimatedStat value={2} label="hackathon recognitions" />
-            <AnimatedStat value={33} label="public GitHub repositories" />
+            <AnimatedStat value={5} label="products shipped to the App Store" />
+            <AnimatedStat value={3} label="hackathon recognitions" />
+            <AnimatedStat value={33} label="Open-source GitHub repositories" />
           </div>
         </section>
 
@@ -425,15 +435,19 @@ export default function Home() {
 
         <section className="about-section" id="about">
           <div className="about-card" data-reveal>
-            <div className="about-monogram" aria-hidden="true"><span>D</span><i /></div>
+            <div className="about-portrait">
+              <Image
+                src="/dragomir-mindrescu.png"
+                alt="Dragomir Mîndrescu"
+                fill
+                sizes="(max-width: 860px) calc(100vw - 40px), 42vw"
+              />
+            </div>
             <div className="about-copy">
               <p className="eyebrow"><span /> About</p>
-              <h2>Product-minded.<br />Detail-obsessed.<br /><em>User-first.</em></h2>
+              <h2>Product-minded.<br />Detail-obsessed.<br />Privacy-conscious.<br /><em>User-first.</em></h2>
               <p>
                 I’m Dragomir, an iOS engineer based in Chișinău. I care about the hidden work behind simple interfaces: reliable state, honest failure modes, accessible interaction, and architecture that stays understandable after launch day.
-              </p>
-              <p>
-                At the Technical University of Moldova, my bachelor thesis became SwiftBuilder—a native macOS environment for visually composing, exporting, and running SwiftUI prototypes.
               </p>
             </div>
           </div>

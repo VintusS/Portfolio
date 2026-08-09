@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const projects = [
   {
@@ -14,11 +14,11 @@ const projects = [
       "A local-first iOS learning companion that turns private source material into cited lessons and practice—without handing curriculum, correctness, or user privacy over to a model.",
     tags: ["Swift 6", "SwiftUI", "SwiftData", "Foundation Models", "PDFKit"],
     github: "https://github.com/VintusS/Daily-Swift",
-    tone: "violet",
+    tone: "sky",
     screenshots: [
-      { src: "/projects/daily-swift/01.png", alt: "Daily Swift Today screen", kind: "phone" },
-      { src: "/projects/daily-swift/02.png", alt: "Daily Swift lesson screen", kind: "phone" },
-      { src: "/projects/daily-swift/03.png", alt: "Daily Swift source citation screen", kind: "phone" },
+      { src: "/projects/daily-swift/01.png", alt: "Daily Swift Today screen", label: "Today screen", kind: "phone" },
+      { src: "/projects/daily-swift/02.png", alt: "Daily Swift lesson screen", label: "Lesson screen", kind: "phone" },
+      { src: "/projects/daily-swift/03.png", alt: "Daily Swift source citation screen", label: "Source citations", kind: "phone" },
     ],
   },
   {
@@ -31,11 +31,11 @@ const projects = [
       "An offline-first coaching platform with a custom workout compiler, runtime session engine, multilingual audio cues, encrypted backups, and an accessible timer designed to be read across a room.",
     tags: ["SwiftUI", "SwiftData", "AVFoundation", "CryptoKit", "XCTest"],
     github: "https://github.com/VintusS/Fit-Kate",
-    tone: "orange",
+    tone: "rose",
     screenshots: [
-      { src: "/projects/fitkate/01.png", alt: "FitKate dashboard", kind: "phone" },
-      { src: "/projects/fitkate/02.png", alt: "FitKate workout editor", kind: "phone" },
-      { src: "/projects/fitkate/03.png", alt: "FitKate live session timer", kind: "phone" },
+      { src: "/projects/fitkate/01.png", alt: "FitKate dashboard", label: "Dashboard", kind: "phone" },
+      { src: "/projects/fitkate/02.png", alt: "FitKate workout editor", label: "Workout editor", kind: "phone" },
+      { src: "/projects/fitkate/03.png", alt: "FitKate live session timer", label: "Live timer", kind: "phone" },
     ],
   },
   {
@@ -48,10 +48,10 @@ const projects = [
       "A visual macOS builder for composing multi-screen interfaces, exporting SwiftUI, and launching prototypes on simulators or connected iPhones through a companion runner.",
     tags: ["SwiftUI", "AppKit", "Codable", "simctl", "devicectl"],
     github: "https://github.com/VintusS/SwiftBuilder",
-    tone: "blue",
+    tone: "green",
     screenshots: [
-      { src: "/projects/swiftbuilder/01.png", alt: "SwiftBuilder macOS workspace", kind: "desktop" },
-      { src: "/projects/swiftbuilder/02.png", alt: "SwiftBuilder iPhone preview", kind: "phone" },
+      { src: "/projects/swiftbuilder/01.png", alt: "SwiftBuilder macOS workspace", label: "macOS workspace", kind: "desktop" },
+      { src: "/projects/swiftbuilder/02.png", alt: "SwiftBuilder iPhone preview", label: "iPhone preview", kind: "phone" },
     ],
   },
   {
@@ -64,11 +64,11 @@ const projects = [
       "A private posture companion that calibrates to the user’s natural upright position and uses compatible Apple headphone motion data to notice sustained head and neck deviation.",
     tags: ["Core Motion", "SwiftUI", "SwiftData", "AirPods", "Privacy"],
     github: "https://github.com/VintusS/Poschore",
-    tone: "mint",
+    tone: "blue",
     screenshots: [
-      { src: "/projects/poschore/01.png", alt: "Poschore calibration screen", kind: "phone" },
-      { src: "/projects/poschore/02.png", alt: "Poschore active tracking screen", kind: "phone" },
-      { src: "/projects/poschore/03.png", alt: "Poschore aligned state", kind: "phone" },
+      { src: "/projects/poschore/01.png", alt: "Poschore calibration screen", label: "Calibration", kind: "phone" },
+      { src: "/projects/poschore/02.png", alt: "Poschore active tracking screen", label: "Active tracking", kind: "phone" },
+      { src: "/projects/poschore/03.png", alt: "Poschore aligned state", label: "Aligned state", kind: "phone" },
     ],
   },
 ];
@@ -118,10 +118,27 @@ const skills = [
 type ProjectScreenshot = {
   src: string;
   alt: string;
+  label: string;
   kind: string;
 };
 
-function ProjectScreenshotGallery({ screenshots, title }: { screenshots: ProjectScreenshot[]; title: string }) {
+function screenshotUrl(src: string, revision: number) {
+  return revision ? `${src}?v=${revision}` : src;
+}
+
+function ScreenshotPlaceholder({ project, label, filename }: { project: string; label: string; filename: string }) {
+  return (
+    <div className="screenshot-placeholder" aria-hidden="true">
+      <span>Actual app screenshot</span>
+      <strong>{project}</strong>
+      <p>{label}</p>
+      <code>{filename}</code>
+      <small>Replace this placeholder with the PNG above</small>
+    </div>
+  );
+}
+
+function ProjectScreenshotGallery({ screenshots, title, revision }: { screenshots: ProjectScreenshot[]; title: string; revision: number }) {
   const [loaded, setLoaded] = useState<string[]>([]);
 
   const markLoaded = (src: string) => {
@@ -130,16 +147,22 @@ function ProjectScreenshotGallery({ screenshots, title }: { screenshots: Project
 
   return (
     <div
-      className={`project-screenshot-gallery ${loaded.length ? "is-ready" : ""} count-${loaded.length}`}
+      className={`project-screenshot-gallery is-ready count-${screenshots.length}`}
       aria-label={`${title} screenshots`}
     >
       {screenshots.map((screenshot) => (
         <figure
-          className={`screenshot-frame screenshot-${screenshot.kind} ${loaded.includes(screenshot.src) ? "is-loaded" : ""}`}
+          className={`screenshot-frame screenshot-${screenshot.kind} ${loaded.includes(screenshot.src) ? "has-image" : ""}`}
           key={screenshot.src}
         >
+          <ScreenshotPlaceholder
+            project={title}
+            label={screenshot.label}
+            filename={screenshot.src.replace("/projects/", "")}
+          />
           <Image
-            src={screenshot.src}
+            className="screenshot-image"
+            src={screenshotUrl(screenshot.src, revision)}
             alt={screenshot.alt}
             fill
             sizes={screenshot.kind === "desktop" ? "(max-width: 600px) 80vw, 40vw" : "(max-width: 600px) 38vw, 16vw"}
@@ -153,83 +176,80 @@ function ProjectScreenshotGallery({ screenshots, title }: { screenshots: Project
   );
 }
 
-function ProjectVisual({ id }: { id: string }) {
-  if (id === "daily-swift") {
-    return (
-      <div className="visual-shell daily-visual" aria-hidden="true">
-        <div className="phone-frame daily-phone">
-          <div className="phone-island" />
-          <div className="app-topline"><span>9:41</span><span>•••</span></div>
-          <p className="mini-kicker">TODAY</p>
-          <h3>Good afternoon, Dragomir.</h3>
-          <div className="lesson-card">
-            <div className="lesson-icon">S</div>
-            <div><span>20 min lesson</span><strong>Concurrency without the mystery</strong></div>
-          </div>
-          <div className="progress-row"><span>Weekly rhythm</span><strong>4 / 5</strong></div>
-          <div className="progress-track"><i /></div>
-          <div className="daily-tabs"><span>Today</span><span>Challenges</span><span>Library</span></div>
-        </div>
-        <div className="citation-float">
-          <span className="status-dot" />
-          <div><small>Source verified</small><strong>3 citations resolved</strong></div>
-        </div>
-      </div>
-    );
-  }
-
-  if (id === "fitkate") {
-    return (
-      <div className="visual-shell fit-visual" aria-hidden="true">
-        <div className="timer-orbit orbit-one" />
-        <div className="timer-orbit orbit-two" />
-        <div className="fit-watch">
-          <span>ROUND 04 · WORK</span>
-          <strong>00:42</strong>
-          <div className="timer-progress"><i /></div>
-          <p>Station rotation · 6 athletes</p>
-        </div>
-        <div className="fit-chip chip-top">HIIT</div>
-        <div className="fit-chip chip-bottom">Voice cues · RO</div>
-      </div>
-    );
-  }
-
-  if (id === "swiftbuilder") {
-    return (
-      <div className="visual-shell builder-visual" aria-hidden="true">
-        <div className="builder-window">
-          <div className="window-bar"><i /><i /><i /><span>SwiftBuilder</span></div>
-          <div className="builder-body">
-            <div className="builder-sidebar">
-              <span>COMPONENTS</span>
-              <b>Text</b><b>Button</b><b>Card</b><b>Image</b>
-            </div>
-            <div className="builder-canvas">
-              <div className="canvas-phone">
-                <small>Welcome</small>
-                <strong>Move ideas<br />forward.</strong>
-                <i />
-              </div>
-            </div>
-            <div className="builder-inspector"><span>INSPECTOR</span><i /><i /><i /><i /></div>
-          </div>
-        </div>
-        <div className="code-float"><span>SwiftUI</span><code>VStack {'{'} … {'}'}</code></div>
-      </div>
-    );
-  }
+function HeroScreenshot({ revision }: { revision: number }) {
+  const [loaded, setLoaded] = useState(false);
 
   return (
-    <div className="visual-shell posture-visual" aria-hidden="true">
-      <div className="posture-halo halo-a" />
-      <div className="posture-halo halo-b" />
-      <div className="posture-card">
-        <span className="airpods-pill">● AirPods connected</span>
-        <div className="posture-ring"><i /><strong>Aligned</strong><small>12:48</small></div>
-        <p>Head and neck alignment</p>
-      </div>
-      <div className="motion-float"><small>Live motion</small><span><i /><i /><i /><i /><i /></span></div>
+    <div className={`hero-screenshot ${loaded ? "has-image" : ""}`}>
+      <ScreenshotPlaceholder project="Daily Swift" label="Hero / Today screen" filename="daily-swift/hero.png" />
+      <Image
+        className="screenshot-image"
+        src={screenshotUrl("/projects/daily-swift/hero.png", revision)}
+        alt="Daily Swift hero screen"
+        fill
+        sizes="310px"
+        unoptimized
+        priority
+        onLoad={() => setLoaded(true)}
+      />
+    </div>
+  );
+}
+
+function AnimatedStat({ value, label, prefix = "" }: { value: number; label: string; prefix?: string }) {
+  const [displayValue, setDisplayValue] = useState(0);
+  const statRef = useRef<HTMLDivElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const stat = statRef.current;
+    if (!stat) return;
+
+    const revealValue = () => {
+      if (hasAnimated.current) return;
+      hasAnimated.current = true;
+
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        setDisplayValue(value);
+        return;
+      }
+
+      const duration = 1050;
+      let frame = 0;
+      let startTime: number | undefined;
+
+      const tick = (timestamp: number) => {
+        if (startTime === undefined) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 4);
+        setDisplayValue(Math.round(value * eased));
+
+        if (progress < 1) frame = window.requestAnimationFrame(tick);
+      };
+
+      frame = window.requestAnimationFrame(tick);
+      return () => window.cancelAnimationFrame(frame);
+    };
+
+    let cancelAnimation: (() => void) | undefined;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        cancelAnimation = revealValue();
+        observer.disconnect();
+      }
+    }, { threshold: 0.45 });
+
+    observer.observe(stat);
+    return () => {
+      observer.disconnect();
+      cancelAnimation?.();
+    };
+  }, [value]);
+
+  return (
+    <div ref={statRef} data-reveal>
+      <strong aria-label={`${prefix}${value}`}>{prefix}{displayValue}</strong>
+      <span>{label}</span>
     </div>
   );
 }
@@ -237,6 +257,25 @@ function ProjectVisual({ id }: { id: string }) {
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [screenshotRevision, setScreenshotRevision] = useState(0);
+
+  useEffect(() => {
+    if (process.env.NODE_ENV !== "development") return;
+
+    const refreshScreenshots = () => setScreenshotRevision(Date.now());
+    const refreshWhenVisible = () => {
+      if (document.visibilityState === "visible") refreshScreenshots();
+    };
+
+    refreshScreenshots();
+    window.addEventListener("focus", refreshScreenshots);
+    document.addEventListener("visibilitychange", refreshWhenVisible);
+
+    return () => {
+      window.removeEventListener("focus", refreshScreenshots);
+      document.removeEventListener("visibilitychange", refreshWhenVisible);
+    };
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -301,23 +340,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-product hero-enter delay-3" aria-hidden="true">
+          <div className="hero-product hero-enter delay-3">
             <div className="hero-device-shadow" />
             <div className="hero-device">
-              <div className="phone-island" />
-              <div className="hero-device-top"><span>9:41</span><span>◖ ◗</span></div>
-              <div className="hero-app-icon">D</div>
-              <p>DAILY SWIFT</p>
-              <h2>Today’s practice is ready.</h2>
-              <div className="hero-lesson">
-                <small>SWIFT CONCURRENCY</small>
-                <strong>Actor isolation,<br />made practical.</strong>
-                <span>Begin lesson →</span>
-              </div>
-              <div className="hero-streak"><i>7</i><span>day rhythm</span><b>•••••••</b></div>
+              <HeroScreenshot revision={screenshotRevision} />
             </div>
-            <div className="floating-card floating-card-a"><span>✓</span><div><small>Local-first</small><strong>Your sources stay yours</strong></div></div>
-            <div className="floating-card floating-card-b"><span>↗</span><div><small>Active build</small><strong>August 2026</strong></div></div>
           </div>
 
           <div className="hero-foot hero-enter delay-4">
@@ -349,8 +376,7 @@ export default function Home() {
                   </a>
                 </div>
                 <div className={`project-visual tone-${project.tone}`}>
-                  <ProjectScreenshotGallery screenshots={project.screenshots} title={project.title} />
-                  <ProjectVisual id={project.id} />
+                  <ProjectScreenshotGallery screenshots={project.screenshots} title={project.title} revision={screenshotRevision} />
                 </div>
               </article>
             ))}
@@ -373,10 +399,10 @@ export default function Home() {
             <h2>Evidence over adjectives.</h2>
           </div>
           <div className="stats-grid">
-            <div data-reveal><strong>’23</strong><span>building software professionally since</span></div>
-            <div data-reveal><strong>2</strong><span>products shipped to the App Store</span></div>
-            <div data-reveal><strong>2</strong><span>hackathon recognitions</span></div>
-            <div data-reveal><strong>33</strong><span>public GitHub repositories</span></div>
+            <AnimatedStat value={23} prefix="’" label="building software professionally since" />
+            <AnimatedStat value={2} label="products shipped to the App Store" />
+            <AnimatedStat value={2} label="hackathon recognitions" />
+            <AnimatedStat value={33} label="public GitHub repositories" />
           </div>
         </section>
 

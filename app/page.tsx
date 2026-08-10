@@ -343,7 +343,7 @@ export default function Home() {
             <p className="eyebrow hero-enter delay-1"><span /> iOS engineer · Chișinău</p>
             <h1 className="hero-enter delay-2">I build iOS apps for the whole <em>Apple ecosystem.</em></h1>
             <p className="hero-summary hero-enter delay-3">
-              My work spans iPhone, Mac, AirPods, Apple Wallet, widgets, voice, and on-device intelligence. I use each part of the platform when it makes the product better.
+              My work spans iPhone's, iPad's and Mac's on-device intelligence. I use each part of the platform when it makes the product better.
             </p>
             <div className="hero-actions hero-enter delay-4">
               <a className="button button-primary" href="#work">See my work <span>↓</span></a>

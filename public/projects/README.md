@@ -22,19 +22,19 @@ Use PNG files at their original Simulator or device resolution. Crop private dat
 - `swiftbuilder/01.png` — macOS workspace
 - `swiftbuilder/02.png` — iPhone preview
 
-## Poschore
+## Inpenso
 
-- `poschore/01.png` — calibration screen
-- `poschore/02.png` — active tracking screen
-- `poschore/03.png` — aligned state
+- `inpenso/01.png` — budget overview
+- `inpenso/02.png` — transactions
+- `inpenso/03.png` — widgets
 
 ## Naming examples
 
 - Correct: `public/projects/daily-swift/03.png`
 - Correct: `public/projects/swiftbuilder/01.png`
 - Incorrect: `Daily Swift screenshot 3.png`
-- Incorrect: `poschore-final.PNG`
+- Incorrect: `inpenso-final.PNG`
 
 Filenames are lowercase folder names followed by zero-padded numbers: `01.png`, `02.png`, `03.png`. The Daily Swift hero is the one exception: `hero.png`.
 
-The `inpenso` and `silverlink` folders are reserved for future project-detail screenshots.
+The `silverlink` folder is reserved for future project-detail screenshots.

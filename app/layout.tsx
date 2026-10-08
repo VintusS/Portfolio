@@ -4,19 +4,23 @@ import { githubUrl, linkedinUrl, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const siteDescription =
-  "Portfolio of Dragomir Mîndrescu, an iOS engineer in Chișinău building Swift and SwiftUI apps for iPhone, Mac, Apple Wallet, AirPods, and widgets.";
+  "Portfolio of Dragomir Mîndrescu, a Senior iOS Engineer building production apps with Swift, SwiftUI, and UIKit. Open to remote roles and relocation.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Dragomir Mîndrescu | iOS Engineer in Chișinău",
+  title: "Dragomir Mîndrescu | Senior iOS Engineer",
   description: siteDescription,
   keywords: [
     "Dragomir Mîndrescu",
     "iOS engineer",
+    "Senior iOS Engineer",
     "iOS developer",
     "Swift developer",
     "SwiftUI",
     "Apple platforms",
+    "UIKit",
+    "Firebase",
+    "remote iOS engineer",
     "Chișinău",
   ],
   authors: [{ name: "Dragomir Mîndrescu" }],
@@ -38,14 +42,14 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     locale: "en_US",
-    title: "Dragomir Mîndrescu | iOS Engineer",
+    title: "Dragomir Mîndrescu | Senior iOS Engineer",
     description: siteDescription,
     siteName: "Dragomir Mîndrescu",
-    images: [{ url: `${siteUrl}/og-v2.png`, width: 1672, height: 941, alt: "Dragomir Mîndrescu, iOS Engineer" }],
+    images: [{ url: `${siteUrl}/og-v2.png`, width: 1672, height: 941, alt: "Dragomir Mîndrescu, Senior iOS Engineer" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dragomir Mîndrescu | iOS Engineer",
+    title: "Dragomir Mîndrescu | Senior iOS Engineer",
     description: siteDescription,
     images: [`${siteUrl}/og-v2.png`],
   },
@@ -60,13 +64,13 @@ const structuredData = {
       name: "Dragomir Mîndrescu",
       url: siteUrl,
       image: `${siteUrl}/dragomir-mindrescu.jpg`,
-      jobTitle: "iOS Engineer",
+      jobTitle: "Senior iOS Engineer",
       homeLocation: {
         "@type": "Place",
         name: "Chișinău, Moldova",
       },
       sameAs: [githubUrl, linkedinUrl],
-      knowsAbout: ["iOS development", "Swift", "SwiftUI", "Apple platforms"],
+      knowsAbout: ["iOS development", "Swift", "SwiftUI", "UIKit", "iOS architecture", "iOS testing", "Firebase"],
     },
     {
       "@type": "WebSite",

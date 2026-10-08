@@ -2,18 +2,19 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { githubUrl, linkedinUrl } from "@/lib/site";
 
 const projects = [
   {
     id: "daily-swift",
     number: "01",
-    label: "Active product · iPhone",
+    label: "Active open-source project",
     title: "Daily Swift",
-    headline: "Learn Swift from your own material.",
+    headline: "Turn your own material into Swift practice.",
     description:
-      "Daily Swift turns private source material into cited lessons and quizzes. The app keeps generation and progress on the user's iPhone instead of sending their curriculum to an external model.",
-    tags: ["Swift 6", "SwiftUI", "SwiftData", "Foundation Models", "PDFKit"],
-    github: "https://github.com/VintusS/Daily-Swift",
+      "An open-source, local-first learning app with PDF, Markdown, and text imports, source-citation validation, versioned history, and automated accessibility and performance checks.",
+    tags: ["Swift 6", "SwiftUI", "SwiftData", "PDFKit", "Swift Testing"],
+    links: [{ label: "View on GitHub", href: "https://github.com/VintusS/Daily-Swift" }],
     tone: "sky",
     screenshots: [
       { src: "/projects/daily-swift/01.png", alt: "Daily Swift Today screen", label: "Today screen", kind: "phone" },
@@ -24,13 +25,16 @@ const projects = [
   {
     id: "fitkate",
     number: "02",
-    label: "Shipped product · App Store",
+    label: "Shipped iOS app · App Store",
     title: "FitKate",
-    headline: "Run a coaching session without fighting the app.",
+    headline: "Keep every coaching session moving.",
     description:
-      "FitKate works offline and covers the full session, from workout setup to timed exercise playback. It includes multilingual audio cues, encrypted backups, and a large timer that stays readable across the room.",
+      "An offline-first coaching app with a session engine for HIIT, EMOM, circuits, rotations, participant assignments, and audio cues. Portable backups are encrypted, and the core session logic is covered by tests.",
     tags: ["SwiftUI", "SwiftData", "AVFoundation", "CryptoKit", "XCTest"],
-    github: "https://github.com/VintusS/Fit-Kate",
+    links: [
+      { label: "Open in the App Store", href: "https://apps.apple.com/md/app/fit-kate/id6778141028" },
+      { label: "View on GitHub", href: "https://github.com/VintusS/Fit-Kate" },
+    ],
     tone: "rose",
     screenshots: [
       { src: "/projects/fitkate/01.png", alt: "FitKate dashboard", label: "Dashboard", kind: "phone" },
@@ -41,13 +45,13 @@ const projects = [
   {
     id: "swiftbuilder",
     number: "03",
-    label: "Bachelor thesis · macOS + iOS",
+    label: "macOS/iOS prototyping tool",
     title: "SwiftBuilder",
-    headline: "Design an interface and run the SwiftUI prototype.",
+    headline: "Build the interface, then run the prototype.",
     description:
-      "SwiftBuilder is a macOS editor for assembling multi-screen interfaces. It exports SwiftUI and launches prototypes in the Simulator or on a connected iPhone through its companion app.",
-    tags: ["SwiftUI", "AppKit", "Codable", "simctl", "devicectl"],
-    github: "https://github.com/VintusS/SwiftBuilder",
+      "A visual editor and iOS preview runner for multi-screen prototypes. It exports SwiftUI and automates build, installation, data transfer, and launch in the Simulator or on a connected device.",
+    tags: ["Swift", "SwiftUI", "AppKit", "22 components", "Xcode CLI"],
+    links: [{ label: "View on GitHub", href: "https://github.com/VintusS/SwiftBuilder" }],
     tone: "green",
     screenshots: [
       { src: "/projects/swiftbuilder/01.png", alt: "SwiftBuilder macOS workspace", label: "macOS workspace", kind: "desktop" },
@@ -55,20 +59,20 @@ const projects = [
     ],
   },
   {
-    id: "poschore",
+    id: "inpenso",
     number: "04",
-    label: "Active product · Sensors",
-    title: "Poschore",
-    headline: "A quiet reminder when posture starts to slip.",
+    label: "Shipped iOS app · App Store",
+    title: "Inpenso",
+    headline: "Keep budgets close without giving up privacy.",
     description:
-      "Poschore calibrates against the user's natural upright position, then reads motion data from compatible Apple headphones. It notices sustained head and neck movement while keeping that data private.",
-    tags: ["Core Motion", "SwiftUI", "SwiftData", "AirPods", "Privacy"],
-    github: "https://github.com/VintusS/Poschore",
-    tone: "blue",
+      "A shipped, on-device finance app for tracking budgets from the app, Home Screen widgets, and Siri shortcuts.",
+    tags: ["iOS", "On-device", "Budgets", "WidgetKit", "Siri Shortcuts"],
+    links: [{ label: "Open in the App Store", href: "https://apps.apple.com/md/app/inpenso/id6756283754" }],
+    tone: "violet",
     screenshots: [
-      { src: "/projects/poschore/01.png", alt: "Poschore calibration screen", label: "Calibration", kind: "phone" },
-      { src: "/projects/poschore/02.png", alt: "Poschore active tracking screen", label: "Active tracking", kind: "phone" },
-      { src: "/projects/poschore/03.png", alt: "Poschore aligned state", label: "Aligned state", kind: "phone" },
+      { src: "/projects/inpenso/01.png", alt: "Inpenso budget overview", label: "Budget overview", kind: "phone" },
+      { src: "/projects/inpenso/02.png", alt: "Inpenso transaction screen", label: "Transactions", kind: "phone" },
+      { src: "/projects/inpenso/03.png", alt: "Inpenso widgets", label: "Widgets", kind: "phone" },
     ],
   },
 ];
@@ -76,53 +80,47 @@ const projects = [
 const experience = [
   {
     company: "Moldcell",
-    role: "Middle iOS Developer",
+    role: "iOS Developer",
     period: "Jun 2026 to present",
-    detail: "I work on customer account flows, telecom services, and Apple Wallet features.",
+    details: [
+      "Own the mobile eKYC implementation as the sole iOS developer.",
+      "Collaborate on Apple Pay payment flows and improve navigation and animations.",
+      "Reduced app launch time by approximately 80% and instrumented key user actions with Firebase Analytics.",
+    ],
   },
   {
     company: "maib",
     role: "iOS Developer",
     period: "Dec 2025 to May 2026",
-    detail: "I improved in-app feedback and customer flows in maibank.",
+    details: [
+      "Led the in-app feedback integration.",
+      "Moved the customer AI chat from WebView to native UIKit and rewrote its networking layer.",
+    ],
   },
   {
     company: "Extole",
     role: "Software Engineer",
-    period: "May 2025 to May 2026",
-    detail: "I built mobile referral products and reusable modules for delivery across platforms.",
-  },
-  {
-    company: "Extole",
-    role: "Frontend Technical Support Engineer",
-    period: "Sep 2023 to May 2025",
-    detail: "I supported enterprise integrations across JavaScript sites and mobile SDKs.",
+    period: "Sep 2023 to May 2026",
+    details: [
+      "Contributed to Go Extole and the iOS SDK, including mobile referral integrations and production fixes.",
+      "Improved CI/CD workflows and mentored student interns.",
+    ],
   },
 ];
 
-const skills = [
-  "SwiftData",
-  "Foundation Models",
-  "PDFKit",
-  "Core Motion",
-  "CMHeadphoneMotionManager",
-  "Background Tasks",
-  "AVFoundation",
-  "CryptoKit",
-  "PassKit",
-  "WidgetKit",
-  "AppKit",
-  "Foundation",
-  "Codable",
-  "Swift Concurrency",
-  "Swift Testing",
-  "XCTest / XCUITest",
-  "Swift Package Manager",
-  "SwiftLint",
-  "simctl",
-  "devicectl",
-  "Xcode Command Line Tools",
-  "JSON Persistence",
+const skillGroups = [
+  {
+    title: "iOS development",
+    skills: ["Swift", "SwiftUI", "UIKit", "Swift concurrency", "SwiftData", "AppKit", "AVFoundation", "PassKit", "WidgetKit", "CryptoKit"],
+  },
+  {
+    title: "Architecture and quality",
+    skills: ["MVVM", "Offline-first persistence", "REST APIs", "XCTest", "Swift Testing", "Accessibility", "Reusable UI components"],
+  },
+  {
+    title: "Firebase and delivery",
+    skills: ["Firebase Analytics", "Performance Monitoring", "Remote Config", "CI/CD", "App Store Connect", "Xcode command-line tools"],
+  },
 ];
 
 type ProjectScreenshot = {
@@ -207,7 +205,7 @@ function HeroScreenshot({ revision }: { revision: number }) {
   );
 }
 
-function AnimatedStat({ value, label, prefix = "" }: { value: number; label: string; prefix?: string }) {
+function AnimatedStat({ value, label, prefix = "", suffix = "" }: { value: number; label: string; prefix?: string; suffix?: string }) {
   const [displayValue, setDisplayValue] = useState(0);
   const statRef = useRef<HTMLDivElement>(null);
   const hasAnimated = useRef(false);
@@ -259,7 +257,7 @@ function AnimatedStat({ value, label, prefix = "" }: { value: number; label: str
 
   return (
     <div ref={statRef} data-reveal>
-      <strong aria-label={`${prefix}${value}`}>{prefix}{displayValue}</strong>
+      <strong aria-label={`${prefix}${value}${suffix}`}>{prefix}{displayValue}{suffix}</strong>
       <span>{label}</span>
     </div>
   );
@@ -330,8 +328,8 @@ export default function Home() {
           <a href="#experience">Experience</a>
           <a href="#about">About</a>
         </nav>
-        <a className="header-cta" href="/Dragomir-Mindrescu-CV.pdf" download>
-          Download CV <span>↓</span>
+        <a className="header-cta" href="/Dragomir-Mindrescu-Resume.pdf" download>
+          Download résumé <span>↓</span>
         </a>
       </header>
 
@@ -340,14 +338,14 @@ export default function Home() {
           <div className="hero-glow glow-one" />
           <div className="hero-glow glow-two" />
           <div className="hero-copy">
-            <p className="eyebrow hero-enter delay-1"><span /> iOS engineer · Chișinău</p>
-            <h1 className="hero-enter delay-2">I build iOS apps for the whole <em>Apple ecosystem.</em></h1>
+            <p className="eyebrow hero-enter delay-1"><span /> Senior iOS Engineer · Chișinău</p>
+            <h1 className="hero-enter delay-2">I build reliable products for <em>Apple platforms.</em></h1>
             <p className="hero-summary hero-enter delay-3">
-              My work spans iPhone's, iPad's and Mac's on-device intelligence. I use each part of the platform when it makes the product better.
+              I ship production iOS apps in SwiftUI and UIKit, from onboarding and payments to offline-first tools. I&apos;m open to remote roles and relocation.
             </p>
             <div className="hero-actions hero-enter delay-4">
-              <a className="button button-primary" href="#work">See my work <span>↓</span></a>
-              <a className="text-link" href="mailto:dmindrescu03@gmail.com">Get in touch <span>↗</span></a>
+              <a className="button button-primary" href="#work">View projects <span>↓</span></a>
+              <a className="text-link" href="/Dragomir-Mindrescu-Resume.pdf" download>Download résumé <span>↓</span></a>
             </div>
           </div>
 
@@ -359,7 +357,7 @@ export default function Home() {
           </div>
 
           <div className="hero-foot hero-enter delay-4">
-            <p>Currently building at <strong>Moldcell Technology</strong></p>
+            <p>Currently building at <strong>Moldcell</strong></p>
             <div><span>Previously</span><strong>maib</strong><strong>Extole</strong></div>
           </div>
         </section>
@@ -367,8 +365,8 @@ export default function Home() {
         <section className="work-section" id="work">
           <div className="section-heading" data-reveal>
             <p className="eyebrow"><span /> Selected work</p>
-            <h2>Apps and tools I&apos;ve built.</h2>
-            <p>These projects began with problems I wanted to solve: learning Swift from private material, running workouts offline, prototyping native interfaces, and improving posture with AirPods.</p>
+            <h2>Products I&apos;ve shipped and tools I&apos;m building.</h2>
+            <p>Open-source work, App Store releases, and a prototyping tool built around practical iOS problems.</p>
           </div>
 
           <div className="project-list">
@@ -382,9 +380,13 @@ export default function Home() {
                   <ul className="tag-list" aria-label={`${project.title} technologies`}>
                     {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
                   </ul>
-                  <a className="project-link" href={project.github} target="_blank" rel="noreferrer">
-                    View project on GitHub <span>↗</span>
-                  </a>
+                  <div className="project-links" aria-label={`${project.title} links`}>
+                    {project.links.map((link) => (
+                      <a className="project-link" href={link.href} target="_blank" rel="noreferrer" key={link.href}>
+                        {link.label} <span>↗</span>
+                      </a>
+                    ))}
+                  </div>
                 </div>
                 <div className={`project-visual tone-${project.tone}`}>
                   <ProjectScreenshotGallery screenshots={project.screenshots} title={project.title} revision={screenshotRevision} />
@@ -395,8 +397,8 @@ export default function Home() {
 
           <div className="more-work" data-reveal>
             <div><p className="eyebrow"><span /> More work</p><h3>A few smaller<br />projects.</h3></div>
-            <a href="https://github.com/VintusS/Inpenso" target="_blank" rel="noreferrer">
-              <span>Inpenso</span><small>Personal finance · App Store</small><b>↗</b>
+            <a href="https://github.com/VintusS/Poschore" target="_blank" rel="noreferrer">
+              <span>Poschore</span><small>Motion sensing · Open source</small><b>↗</b>
             </a>
             <a href="https://github.com/VintusS/SilverLink" target="_blank" rel="noreferrer">
               <span>SilverLink</span><small>Accessibility · Hackathon winner</small><b>↗</b>
@@ -407,27 +409,29 @@ export default function Home() {
         <section className="stats-section" aria-label="Career statistics">
           <div className="stat-intro" data-reveal>
             <p className="eyebrow light"><span /> In numbers</p>
-            <h2>The numbers so far.</h2>
+            <h2>Evidence over adjectives.</h2>
           </div>
           <div className="stats-grid">
-            <AnimatedStat value={23} prefix="'" label="working in software since" />
-            <AnimatedStat value={5} label="products shipped to the App Store" />
-            <AnimatedStat value={3} label="hackathon awards and recognitions" />
-            <AnimatedStat value={33} label="public GitHub repositories" />
+            <AnimatedStat value={80} prefix="~" suffix="%" label="faster app launch at Moldcell" />
+            <AnimatedStat value={2} label="independently shipped App Store apps" />
+            <AnimatedStat value={22} label="components built for SwiftBuilder" />
+            <AnimatedStat value={3} label="companies in production experience" />
           </div>
         </section>
 
         <section className="experience-section" id="experience">
           <div className="section-heading compact" data-reveal>
             <p className="eyebrow"><span /> Experience</p>
-            <h2>How I got here.</h2>
+            <h2>Production iOS experience.</h2>
           </div>
           <div className="timeline">
             {experience.map((item, index) => (
               <article className="timeline-item" data-reveal key={`${item.company}-${item.role}`}>
                 <span className="timeline-index">0{index + 1}</span>
                 <div><h3>{item.company}</h3><p>{item.role}</p></div>
-                <p className="timeline-detail">{item.detail}</p>
+                <ul className="timeline-details">
+                  {item.details.map((detail) => <li key={detail}>{detail}</li>)}
+                </ul>
                 <time>{item.period}</time>
               </article>
             ))}
@@ -446,28 +450,33 @@ export default function Home() {
             </div>
             <div className="about-copy">
               <p className="eyebrow"><span /> About</p>
-              <h2>The parts users<br />do not see still <em>matter.</em></h2>
+              <h2>Product-minded.<br />Careful with the <em>details.</em></h2>
               <p>
-                I&apos;m Dragomir, an iOS engineer in Chișinău. I spend a lot of time on the work behind the interface: state that survives edge cases, failures that explain themselves, accessible controls, and code the next engineer can still follow.
+                I&apos;m Dragomir, a Senior iOS Engineer based in Chișinău. I work across SwiftUI and UIKit, with a focus on architecture, testing, accessibility, and the production details that keep an app dependable.
               </p>
             </div>
           </div>
-          <ul className="skills-cloud" data-reveal aria-label="Technical skills">
-            {skills.map((skill) => <li key={skill}>{skill}</li>)}
-          </ul>
+          <div className="skills-groups" data-reveal aria-label="Technical skills">
+            {skillGroups.map((group) => (
+              <section className="skill-group" key={group.title}>
+                <h3>{group.title}</h3>
+                <ul>{group.skills.map((skill) => <li key={skill}>{skill}</li>)}</ul>
+              </section>
+            ))}
+          </div>
         </section>
 
         <section className="contact-section" id="contact">
           <div className="contact-orb orb-left" /><div className="contact-orb orb-right" />
           <div className="contact-inner" data-reveal>
             <p className="eyebrow light"><span /> Get in touch</p>
-            <h2>Need an <em>iOS engineer?</em></h2>
-            <p>I&apos;m interested in iOS work where the product problem is real and the details matter. If that sounds like your team, send me an email.</p>
+            <h2>Looking for a <em>Senior iOS Engineer?</em></h2>
+            <p>I&apos;m open to remote roles and relocation opportunities where I can own meaningful iOS work and help ship a dependable product.</p>
             <a className="contact-email" href="mailto:dmindrescu03@gmail.com">dmindrescu03@gmail.com <span>↗</span></a>
             <div className="contact-links">
-              <a href="https://github.com/VintusS" target="_blank" rel="noreferrer">GitHub ↗</a>
-              <a href="https://www.linkedin.com/in/%EF%A3%BF-dragomir-m%C3%AEndrescu-34236227b/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-              <a href="/Dragomir-Mindrescu-CV.pdf" download>Download CV ↓</a>
+              <a href={githubUrl} target="_blank" rel="noreferrer">GitHub ↗</a>
+              <a href={linkedinUrl} target="_blank" rel="noreferrer">LinkedIn ↗</a>
+              <a href="/Dragomir-Mindrescu-Resume.pdf" download>Download résumé ↓</a>
             </div>
           </div>
         </section>

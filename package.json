@@ -6,6 +6,8 @@
     "node": ">=20.9.0"
   },
   "scripts": {
+    "generate:mockups": "node scripts/generate-mockups.mjs",
+    "check:mockups": "node scripts/generate-mockups.mjs --check",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

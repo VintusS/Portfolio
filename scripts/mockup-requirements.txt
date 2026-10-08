@@ -1,0 +1,2 @@
+# Pin the reviewed upstream implementation and its bundled Apple device frames.
+mockups @ git+https://github.com/weirdapps/mockups.git@364a4794785ce8cd615c31c0fa21265973c6496d

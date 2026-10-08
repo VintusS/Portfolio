@@ -333,33 +333,21 @@ footer a:hover {
 .hero-device {
   position: relative;
   width: 310px;
-  height: 620px;
+  aspect-ratio: 1406 / 2822;
   padding: 0;
-  overflow: hidden;
-  border: 8px solid #19191d;
-  border-radius: 54px;
-  color: #26222c;
-  background: linear-gradient(165deg, #fbfaff, #efebff 58%, #e8f1ff);
-  box-shadow: 0 50px 100px rgba(41, 36, 73, 0.23), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+  filter: drop-shadow(0 35px 38px rgba(41, 36, 73, 0.23));
   transform: rotateY(-8deg) rotateX(2deg) rotateZ(3deg);
   animation: device-float 6s ease-in-out infinite;
 }
 
 .hero-screenshot {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
+  width: 100%;
 }
 
-.phone-island {
-  position: absolute;
-  top: 13px;
-  left: 50%;
-  width: 90px;
-  height: 25px;
-  border-radius: 999px;
-  background: #111115;
-  transform: translateX(-50%);
+.hero-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .hero-device-top,
@@ -747,11 +735,6 @@ footer a:hover {
 
 .screenshot-image {
   z-index: 2;
-  opacity: 0;
-  transition: opacity 420ms ease;
-}
-
-.has-image > .screenshot-image {
   opacity: 1;
 }
 
@@ -762,130 +745,18 @@ footer a:hover {
   object-fit: cover;
 }
 
-.screenshot-placeholder {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 14%;
-  color: #24252c;
-  text-align: center;
-  background:
-    radial-gradient(circle at 72% 18%, rgba(89, 115, 255, 0.2), transparent 31%),
-    radial-gradient(circle at 20% 84%, rgba(114, 224, 192, 0.22), transparent 35%),
-    linear-gradient(150deg, rgba(255, 255, 255, 0.96), rgba(235, 232, 248, 0.9));
-}
-
-.screenshot-placeholder::before {
-  content: "+";
-  width: 36px;
-  height: 36px;
-  margin-bottom: 16px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(37, 38, 46, 0.14);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 10px 25px rgba(38, 38, 55, 0.08);
-  font-size: 19px;
-  font-weight: 430;
-}
-
-.screenshot-placeholder span {
-  color: #777985;
-  font-size: 7px;
-  font-weight: 760;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.screenshot-placeholder strong {
-  margin-top: 10px;
-  font-size: clamp(13px, 1.4vw, 18px);
-  line-height: 1.05;
-  letter-spacing: -0.045em;
-}
-
-.screenshot-placeholder p {
-  margin: 5px 0 14px;
-  color: #686a74;
-  font-size: 9px;
-}
-
-.screenshot-placeholder code {
-  max-width: 100%;
-  padding: 7px 8px;
-  overflow-wrap: anywhere;
-  border: 1px solid rgba(37, 38, 46, 0.11);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.72);
-  font-family: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
-  font-size: 6.5px;
-  line-height: 1.35;
-}
-
-.screenshot-placeholder small {
-  max-width: 120px;
-  margin-top: 10px;
-  color: #898b94;
-  font-size: 6px;
-  line-height: 1.35;
-}
-
-.hero-screenshot .screenshot-placeholder {
-  padding: 35px;
-}
-
-.hero-screenshot .screenshot-placeholder::before {
-  width: 52px;
-  height: 52px;
-  border-radius: 17px;
-  font-size: 26px;
-}
-
-.hero-screenshot .screenshot-placeholder span { font-size: 8px; }
-.hero-screenshot .screenshot-placeholder strong { font-size: 27px; }
-.hero-screenshot .screenshot-placeholder p { font-size: 12px; }
-.hero-screenshot .screenshot-placeholder code { font-size: 9px; }
-.hero-screenshot .screenshot-placeholder small { font-size: 8px; }
-
 .screenshot-phone {
   width: 31%;
-  aspect-ratio: 9 / 19.5;
-  border: 4px solid #111216;
-  border-radius: clamp(24px, 2.25vw, 32px);
-  background: #111216;
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.18),
-    0 34px 75px rgba(24, 27, 40, 0.28),
-    0 8px 22px rgba(24, 27, 40, 0.16);
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+  filter: drop-shadow(0 22px 22px rgba(24, 27, 40, 0.28));
 }
 
-.screenshot-phone::after,
-.hero-device::after {
-  content: "";
-  position: absolute;
-  z-index: 5;
-  top: 1.45%;
-  left: 50%;
-  width: 31%;
-  aspect-ratio: 3.15 / 1;
-  border-radius: 999px;
-  background: #050506;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.035),
-    0 1px 3px rgba(0, 0, 0, 0.28);
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-
-.hero-device::after {
-  top: 12px;
-  width: 91px;
-  height: 27px;
-  aspect-ratio: auto;
+.screenshot-phone img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .screenshot-desktop {
@@ -926,11 +797,6 @@ footer a:hover {
   width: 27%;
   margin-left: -14%;
   transform: translateY(12%) rotate(4deg);
-}
-
-/* Some captures already include their own Dynamic Island. */
-.screenshot-phone.has-built-in-island::after {
-  display: none;
 }
 
 .phone-frame {
@@ -1812,6 +1678,7 @@ footer > a { justify-self: end; color: white; }
   .hero-summary { font-size: 16px; }
   .hero-actions { flex-direction: column; gap: 20px; }
   .hero-product { min-height: 530px; transform: scale(0.82); margin: -35px -45px; }
+  .hero-device { width: min(310px, calc(100vw - 80px)); }
   .floating-card-a { left: 1%; }
   .floating-card-b { right: 0; }
 
@@ -1844,7 +1711,7 @@ footer > a { justify-self: end; color: white; }
   .project-copy h3 { font-size: 40px; }
   .project-visual { min-height: 470px; }
   .project-screenshot-gallery { padding: 6%; }
-  .screenshot-phone { width: 38%; border-width: 4px; }
+  .screenshot-phone { width: 38%; }
   .project-screenshot-gallery.count-1 .screenshot-phone { width: 46%; }
   .screenshot-desktop { width: 89%; border-width: 6px; border-radius: 13px; }
   .project-screenshot-gallery .screenshot-desktop + .screenshot-phone {
@@ -1862,6 +1729,7 @@ footer > a { justify-self: end; color: white; }
   .more-work > div { grid-column: auto; }
 
   .stats-section { padding-top: 105px; padding-bottom: 105px; }
+  .stat-intro { flex-direction: column; align-items: flex-start; gap: 24px; }
   .stats-grid { margin-top: 65px; }
   .stats-grid > div { min-height: 210px; padding: 27px 18px; }
   .stats-grid > div:nth-child(3) { padding-left: 0; }

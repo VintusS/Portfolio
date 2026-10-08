@@ -11,6 +11,17 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Updating app screenshots
+
+Replace the source images in `public/projects`, then run:
+
+```bash
+npm run generate:mockups
+npm run check:mockups
+```
+
+This creates transparent black titanium iPhone mockups without changing the originals. See [the screenshot guide](public/projects/README.md) for filenames, supported dimensions, and first-run requirements. Commit the generated `public/mockups` images and `lib/mockups.json` along with source updates.
+
 ## Production build
 
 ```bash

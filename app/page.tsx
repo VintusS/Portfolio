@@ -3,6 +3,15 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { githubUrl, linkedinUrl } from "@/lib/site";
+import generatedAssets from "@/lib/mockups.json";
+
+const screenshotAssets: Record<string, { src: string; width: number; height: number }> = generatedAssets;
+
+function screenshotAsset(src: string) {
+  const asset = screenshotAssets[src];
+  if (!asset) throw new Error(`Missing generated screenshot: ${src}. Run npm run generate:mockups.`);
+  return asset;
+}
 
 const projects = [
   {
@@ -55,24 +64,24 @@ const projects = [
     tone: "green",
     screenshots: [
       { src: "/projects/swiftbuilder/01.png", alt: "SwiftBuilder macOS workspace", label: "macOS workspace", kind: "desktop" },
-      { src: "/projects/swiftbuilder/02.png", alt: "SwiftBuilder iPhone preview", label: "iPhone preview", kind: "phone", builtInIsland: true },
+      { src: "/projects/swiftbuilder/02.png", alt: "SwiftBuilder iPhone preview", label: "iPhone preview", kind: "phone" },
     ],
   },
   {
-    id: "inpenso",
+    id: "poschore",
     number: "04",
-    label: "Shipped iOS app · App Store",
-    title: "Inpenso",
-    headline: "Keep budgets close without giving up privacy.",
+    label: "Active product · Sensors",
+    title: "Poschore",
+    headline: "A quiet reminder when posture starts to slip.",
     description:
-      "A shipped, on-device finance app for tracking budgets from the app, Home Screen widgets, and Siri shortcuts.",
-    tags: ["iOS", "On-device", "Budgets", "WidgetKit", "Siri Shortcuts"],
-    links: [{ label: "Open in the App Store", href: "https://apps.apple.com/md/app/inpenso/id6756283754" }],
-    tone: "violet",
+      "Poschore calibrates against the user's natural upright position, then reads motion data from compatible Apple headphones. It notices sustained head and neck movement while keeping that data private.",
+    tags: ["Core Motion", "SwiftUI", "SwiftData", "AirPods", "Privacy"],
+    links: [{ label: "View on GitHub", href: "https://github.com/VintusS/Poschore" }],
+    tone: "blue",
     screenshots: [
-      { src: "/projects/inpenso/01.png", alt: "Inpenso budget overview", label: "Budget overview", kind: "phone" },
-      { src: "/projects/inpenso/02.png", alt: "Inpenso transaction screen", label: "Transactions", kind: "phone" },
-      { src: "/projects/inpenso/03.png", alt: "Inpenso widgets", label: "Widgets", kind: "phone" },
+      { src: "/projects/poschore/01.png", alt: "Poschore calibration screen", label: "Calibration", kind: "phone" },
+      { src: "/projects/poschore/02.png", alt: "Poschore active tracking screen", label: "Active tracking", kind: "phone" },
+      { src: "/projects/poschore/03.png", alt: "Poschore aligned state", label: "Aligned state", kind: "phone" },
     ],
   },
 ];
@@ -128,78 +137,57 @@ type ProjectScreenshot = {
   alt: string;
   label: string;
   kind: string;
-  builtInIsland?: boolean;
 };
 
 function screenshotUrl(src: string, revision: number) {
-  return revision ? `${src}?v=${revision}` : src;
-}
-
-function ScreenshotPlaceholder({ project, label, filename }: { project: string; label: string; filename: string }) {
-  return (
-    <div className="screenshot-placeholder" aria-hidden="true">
-      <span>App screenshot</span>
-      <strong>{project}</strong>
-      <p>{label}</p>
-      <code>{filename}</code>
-      <small>Place the PNG at the path above</small>
-    </div>
-  );
+  return revision ? `${src}${src.includes("?") ? "&" : "?"}v=${revision}` : src;
 }
 
 function ProjectScreenshotGallery({ screenshots, title, revision }: { screenshots: ProjectScreenshot[]; title: string; revision: number }) {
-  const [loaded, setLoaded] = useState<string[]>([]);
-
-  const markLoaded = (src: string) => {
-    setLoaded((current) => current.includes(src) ? current : [...current, src]);
-  };
-
   return (
     <div
       className={`project-screenshot-gallery is-ready count-${screenshots.length}`}
       aria-label={`${title} screenshots`}
     >
-      {screenshots.map((screenshot) => (
-        <figure
-          className={`screenshot-frame screenshot-${screenshot.kind} ${screenshot.builtInIsland ? "has-built-in-island" : ""} ${loaded.includes(screenshot.src) ? "has-image" : ""}`}
-          key={screenshot.src}
-        >
-          <ScreenshotPlaceholder
-            project={title}
-            label={screenshot.label}
-            filename={screenshot.src.replace("/projects/", "")}
-          />
-          <Image
-            className="screenshot-image"
-            src={screenshotUrl(screenshot.src, revision)}
-            alt={screenshot.alt}
-            fill
-            sizes={screenshot.kind === "desktop" ? "(max-width: 600px) 80vw, 40vw" : "(max-width: 600px) 38vw, 16vw"}
-            unoptimized
-            loading="lazy"
-            onLoad={() => markLoaded(screenshot.src)}
-          />
-        </figure>
-      ))}
+      {screenshots.map((screenshot) => {
+        const asset = screenshotAsset(screenshot.src);
+        return (
+          <figure
+            className={`screenshot-frame screenshot-${screenshot.kind}`}
+            style={screenshot.kind === "phone" ? { aspectRatio: `${asset.width} / ${asset.height}` } : undefined}
+            key={screenshot.src}
+          >
+            <Image
+              className="screenshot-image"
+              src={screenshotUrl(asset.src, revision)}
+              alt={screenshot.alt}
+              width={asset.width}
+              height={asset.height}
+              sizes={screenshot.kind === "desktop" ? "(max-width: 600px) 80vw, 40vw" : "(max-width: 600px) 38vw, 16vw"}
+              unoptimized
+              loading="lazy"
+            />
+          </figure>
+        );
+      })}
     </div>
   );
 }
 
 function HeroScreenshot({ revision }: { revision: number }) {
-  const [loaded, setLoaded] = useState(false);
+  const asset = screenshotAsset("/projects/daily-swift/hero.png");
 
   return (
-    <div className={`hero-screenshot ${loaded ? "has-image" : ""}`}>
-      <ScreenshotPlaceholder project="Daily Swift" label="Hero / Today screen" filename="daily-swift/hero.png" />
+    <div className="hero-screenshot">
       <Image
         className="screenshot-image"
-        src={screenshotUrl("/projects/daily-swift/hero.png", revision)}
+        src={screenshotUrl(asset.src, revision)}
         alt="Daily Swift hero screen"
-        fill
+        width={asset.width}
+        height={asset.height}
         sizes="310px"
         unoptimized
         priority
-        onLoad={() => setLoaded(true)}
       />
     </div>
   );
@@ -329,7 +317,7 @@ export default function Home() {
           <a href="#about">About</a>
         </nav>
         <a className="header-cta" href="/Dragomir-Mindrescu-Resume.pdf" download>
-          Download résumé <span>↓</span>
+          Download resume <span>↓</span>
         </a>
       </header>
 
@@ -345,7 +333,7 @@ export default function Home() {
             </p>
             <div className="hero-actions hero-enter delay-4">
               <a className="button button-primary" href="#work">View projects <span>↓</span></a>
-              <a className="text-link" href="/Dragomir-Mindrescu-Resume.pdf" download>Download résumé <span>↓</span></a>
+              <a className="text-link" href="/Dragomir-Mindrescu-Resume.pdf" download>Download resume <span>↓</span></a>
             </div>
           </div>
 
@@ -397,8 +385,8 @@ export default function Home() {
 
           <div className="more-work" data-reveal>
             <div><p className="eyebrow"><span /> More work</p><h3>A few smaller<br />projects.</h3></div>
-            <a href="https://github.com/VintusS/Poschore" target="_blank" rel="noreferrer">
-              <span>Poschore</span><small>Motion sensing · Open source</small><b>↗</b>
+            <a href="https://apps.apple.com/md/app/inpenso/id6756283754" target="_blank" rel="noreferrer">
+              <span>Inpenso</span><small>Personal finance · App Store</small><b>↗</b>
             </a>
             <a href="https://github.com/VintusS/SilverLink" target="_blank" rel="noreferrer">
               <span>SilverLink</span><small>Accessibility · Hackathon winner</small><b>↗</b>
@@ -412,10 +400,10 @@ export default function Home() {
             <h2>Evidence over adjectives.</h2>
           </div>
           <div className="stats-grid">
-            <AnimatedStat value={80} prefix="~" suffix="%" label="faster app launch at Moldcell" />
-            <AnimatedStat value={2} label="independently shipped App Store apps" />
-            <AnimatedStat value={22} label="components built for SwiftBuilder" />
-            <AnimatedStat value={3} label="companies in production experience" />
+            <AnimatedStat value={23} prefix="'" label="working in software since" />
+            <AnimatedStat value={8} label="products shipped to the App Store" />
+            <AnimatedStat value={3} label="hackathon awards and recognitions" />
+            <AnimatedStat value={33} label="public GitHub repositories" />
           </div>
         </section>
 
@@ -476,7 +464,7 @@ export default function Home() {
             <div className="contact-links">
               <a href={githubUrl} target="_blank" rel="noreferrer">GitHub ↗</a>
               <a href={linkedinUrl} target="_blank" rel="noreferrer">LinkedIn ↗</a>
-              <a href="/Dragomir-Mindrescu-Resume.pdf" download>Download résumé ↓</a>
+              <a href="/Dragomir-Mindrescu-Resume.pdf" download>Download resume ↓</a>
             </div>
           </div>
         </section>

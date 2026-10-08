@@ -1,0 +1,276 @@
+{
+  "tool": "weirdapps/mockups",
+  "revision": "364a4794785ce8cd615c31c0fa21265973c6496d",
+  "measuredScreenBounds": [
+    102,
+    100,
+    1308,
+    2722
+  ],
+  "assets": [
+    {
+      "source": "/projects/daily-swift/01.png",
+      "sha256": "1b7f652c3537940aa291227993c2cf96fb54d9e57d8db771c81ebd4da4c556e7",
+      "sourceSize": [
+        1260,
+        2736
+      ],
+      "model": "iPhone 16 Pro",
+      "frame": "Black Titanium",
+      "output": "/mockups/daily-swift/01.png",
+      "outputSize": [
+        1406,
+        2822
+      ],
+      "sourceRatioError": 0.0,
+      "edgePaddingPixels": [
+        0,
+        1,
+        0,
+        2
+      ],
+      "removedEmbeddedIsland": null
+    },
+    {
+      "source": "/projects/daily-swift/02.png",
+      "sha256": "340da74eb5bdc18c8cb67c5a9edf72c3bc2c570fc3b1a6563dbc1590c7333ab7",
+      "sourceSize": [
+        1260,
+        2736
+      ],
+      "model": "iPhone 16 Pro",
+      "frame": "Black Titanium",
+      "output": "/mockups/daily-swift/02.png",
+      "outputSize": [
+        1406,
+        2822
+      ],
+      "sourceRatioError": 0.0,
+      "edgePaddingPixels": [
+        0,
+        1,
+        0,
+        2
+      ],
+      "removedEmbeddedIsland": null
+    },
+    {
+      "source": "/projects/daily-swift/03.png",
+      "sha256": "29cc038c9f92e7ff99e01ca577c5db50d3eb73c313c1417d50d3714f37502258",
+      "sourceSize": [
+        1260,
+        2736
+      ],
+      "model": "iPhone 16 Pro",
+      "frame": "Black Titanium",
+      "output": "/mockups/daily-swift/03.png",
+      "outputSize": [
+        1406,
+        2822
+      ],
+      "sourceRatioError": 0.0,
+      "edgePaddingPixels": [
+        0,
+        1,
+        0,
+        2
+      ],
+      "removedEmbeddedIsland": null
+    },
+    {
+      "source": "/projects/daily-swift/hero.png",
+      "sha256": "7c54bd7b1a3e60a112ee74bbd3aa6999b810b3fee22a1c21cde3a30c1ba40670",
+      "sourceSize": [
+        1260,
+        2736
+      ],
+      "model": "iPhone 16 Pro",
+      "frame": "Black Titanium",
+      "output": "/mockups/daily-swift/hero.png",
+      "outputSize": [
+        1406,
+        2822
+      ],
+      "sourceRatioError": 0.0,
+      "edgePaddingPixels": [
+        0,
+        1,
+        0,
+        2
+      ],
+      "removedEmbeddedIsland": null
+    },
+    {
+      "source": "/projects/fitkate/01.png",
+      "sha256": "6a94519b39211e8381657e131282075ea3940e10dfb49d0adf2c68221776e816",
+      "sourceSize": [
+        1260,
+        2736
+      ],
+      "model": "iPhone 16 Pro",
+      "frame": "Black Titanium",
+      "output": "/mockups/fitkate/01.png",
+      "outputSize": [
+        1406,
+        2822
+      ],
+      "sourceRatioError": 0.0,
+      "edgePaddingPixels": [
+        0,
+        1,
+        0,
+        2
+      ],
+      "removedEmbeddedIsland": null
+    },
+    {
+      "source": "/projects/fitkate/02.png",
+      "sha256": "18c028af869d9d4ac3533527f53159e7e9b804de03cd5c88b107bac5cb15ef34",
+      "sourceSize": [
+        1260,
+        2736
+      ],
+      "model": "iPhone 16 Pro",
+      "frame": "Black Titanium",
+      "output": "/mockups/fitkate/02.png",
+      "outputSize": [
+        1406,
+        2822
+      ],
+      "sourceRatioError": 0.0,
+      "edgePaddingPixels": [
+        0,
+        1,
+        0,
+        2
+      ],
+      "removedEmbeddedIsland": null
+    },
+    {
+      "source": "/projects/fitkate/03.png",
+      "sha256": "583c634471f604fe196a538d3c6519290ca8c796790042aa612ccff96ecb8f3a",
+      "sourceSize": [
+        1260,
+        2736
+      ],
+      "model": "iPhone 16 Pro",
+      "frame": "Black Titanium",
+      "output": "/mockups/fitkate/03.png",
+      "outputSize": [
+        1406,
+        2822
+      ],
+      "sourceRatioError": 0.0,
+      "edgePaddingPixels": [
+        0,
+        1,
+        0,
+        2
+      ],
+      "removedEmbeddedIsland": null
+    },
+    {
+      "source": "/projects/poschore/01.png",
+      "sha256": "5d5801905a502594e8ba500ad4d0919536b721c6f43cc44f8e7cba6bc2597016",
+      "sourceSize": [
+        1260,
+        2736
+      ],
+      "model": "iPhone 16 Pro",
+      "frame": "Black Titanium",
+      "output": "/mockups/poschore/01.png",
+      "outputSize": [
+        1406,
+        2822
+      ],
+      "sourceRatioError": 0.0,
+      "edgePaddingPixels": [
+        0,
+        1,
+        0,
+        2
+      ],
+      "removedEmbeddedIsland": null
+    },
+    {
+      "source": "/projects/poschore/02.png",
+      "sha256": "8b19b8019bf190df214c8875f55ac0faf8503f2fd87a15344791d10e7706d366",
+      "sourceSize": [
+        1260,
+        2736
+      ],
+      "model": "iPhone 16 Pro",
+      "frame": "Black Titanium",
+      "output": "/mockups/poschore/02.png",
+      "outputSize": [
+        1406,
+        2822
+      ],
+      "sourceRatioError": 0.0,
+      "edgePaddingPixels": [
+        0,
+        1,
+        0,
+        2
+      ],
+      "removedEmbeddedIsland": null
+    },
+    {
+      "source": "/projects/poschore/03.png",
+      "sha256": "52b4d242c5ac65229571e804ab51e09cd6d0c79d428425be3ee142c130a23607",
+      "sourceSize": [
+        1260,
+        2736
+      ],
+      "model": "iPhone 16 Pro",
+      "frame": "Black Titanium",
+      "output": "/mockups/poschore/03.png",
+      "outputSize": [
+        1406,
+        2822
+      ],
+      "sourceRatioError": 0.0,
+      "edgePaddingPixels": [
+        0,
+        1,
+        0,
+        2
+      ],
+      "removedEmbeddedIsland": null
+    },
+    {
+      "source": "/projects/swiftbuilder/01.png",
+      "sha256": "a076088700b3dd9ce753e51025e00135dfb44cb43fa519a507c898137190810e",
+      "kind": "desktop",
+      "note": "Preserved original macOS screenshot; not an iPhone capture."
+    },
+    {
+      "source": "/projects/swiftbuilder/02.png",
+      "sha256": "53f8d22cc27857e834d9d9449de3b3ecdc71b53e2674833589ed7c6e131cb0b4",
+      "sourceSize": [
+        690,
+        1494
+      ],
+      "model": "iPhone 16 Pro",
+      "frame": "Black Titanium",
+      "output": "/mockups/swiftbuilder/02.png",
+      "outputSize": [
+        1406,
+        2822
+      ],
+      "sourceRatioError": 0.002869,
+      "edgePaddingPixels": [
+        0,
+        5,
+        0,
+        6
+      ],
+      "removedEmbeddedIsland": [
+        244,
+        31,
+        448,
+        88
+      ]
+    }
+  ]
+}

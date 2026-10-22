@@ -15,25 +15,8 @@ function screenshotAsset(src: string) {
 
 const projects = [
   {
-    id: "daily-swift",
-    number: "01",
-    label: "Active open-source project",
-    title: "Daily Swift",
-    headline: "Turn your own material into Swift practice.",
-    description:
-      "An open-source, local-first learning app with PDF, Markdown, and text imports, source-citation validation, versioned history, and automated accessibility and performance checks.",
-    tags: ["Swift 6", "SwiftUI", "SwiftData", "PDFKit", "Swift Testing"],
-    links: [{ label: "View on GitHub", href: "https://github.com/VintusS/Daily-Swift" }],
-    tone: "sky",
-    screenshots: [
-      { src: "/projects/daily-swift/01.png", alt: "Daily Swift Today screen", label: "Today screen", kind: "phone" },
-      { src: "/projects/daily-swift/02.png", alt: "Daily Swift lesson screen", label: "Lesson screen", kind: "phone" },
-      { src: "/projects/daily-swift/03.png", alt: "Daily Swift source citation screen", label: "Source citations", kind: "phone" },
-    ],
-  },
-  {
     id: "fitkate",
-    number: "02",
+    number: "01",
     label: "Shipped iOS app · App Store",
     title: "FitKate",
     headline: "Keep every coaching session moving.",
@@ -53,13 +36,13 @@ const projects = [
   },
   {
     id: "swiftbuilder",
-    number: "03",
+    number: "02",
     label: "macOS/iOS prototyping tool",
     title: "SwiftBuilder",
     headline: "Build the interface, then run the prototype.",
     description:
       "A visual editor and iOS preview runner for multi-screen prototypes. It exports SwiftUI and automates build, installation, data transfer, and launch in the Simulator or on a connected device.",
-    tags: ["Swift", "SwiftUI", "AppKit", "22 components", "Xcode CLI"],
+    tags: ["Swift", "SwiftUI", "AppKit", "Reusable components", "Xcode CLI"],
     links: [{ label: "View on GitHub", href: "https://github.com/VintusS/SwiftBuilder" }],
     tone: "green",
     screenshots: [
@@ -68,15 +51,35 @@ const projects = [
     ],
   },
   {
+    id: "daily-swift",
+    number: "03",
+    label: "Experimental open-source app",
+    title: "Daily Swift",
+    headline: "Turn your own material into Swift practice.",
+    description:
+      "An open-source, local-first learning app with PDF, Markdown, and text imports, source-citation validation, versioned history, and automated accessibility and performance checks.",
+    tags: ["Swift", "SwiftUI", "SwiftData", "PDFKit", "Swift Testing"],
+    links: [{ label: "View on GitHub", href: "https://github.com/VintusS/Daily-Swift" }],
+    tone: "sky",
+    screenshots: [
+      { src: "/projects/daily-swift/01.png", alt: "Daily Swift Today screen", label: "Today screen", kind: "phone" },
+      { src: "/projects/daily-swift/02.png", alt: "Daily Swift lesson screen", label: "Lesson screen", kind: "phone" },
+      { src: "/projects/daily-swift/03.png", alt: "Daily Swift source citation screen", label: "Source citations", kind: "phone" },
+    ],
+  },
+  {
     id: "poschore",
     number: "04",
-    label: "Active product · Sensors",
+    label: "Shipped iOS app · App Store",
     title: "Poschore",
     headline: "A quiet reminder when posture starts to slip.",
     description:
       "Poschore calibrates against the user's natural upright position, then reads motion data from compatible Apple headphones. It notices sustained head and neck movement while keeping that data private.",
     tags: ["Core Motion", "SwiftUI", "SwiftData", "AirPods", "Privacy"],
-    links: [{ label: "View on GitHub", href: "https://github.com/VintusS/Poschore" }],
+    links: [
+      { label: "Open in the App Store", href: "https://apps.apple.com/md/app/poschore/id6799199391" },
+      { label: "View on GitHub", href: "https://github.com/VintusS/Poschore" },
+    ],
     tone: "blue",
     screenshots: [
       { src: "/projects/poschore/01.png", alt: "Poschore calibration screen", label: "Calibration", kind: "phone" },
@@ -88,33 +91,44 @@ const projects = [
 
 const experience = [
   {
-    company: "Moldcell",
-    role: "iOS Developer",
-    period: "Jun 2026 to present",
-    details: [
-      "Own the mobile eKYC implementation as the sole iOS developer.",
-      "Collaborate on Apple Pay payment flows and improve navigation and animations.",
-      "Reduced app launch time by approximately 80% and instrumented key user actions with Firebase Analytics.",
-    ],
+    "company": "Moldcell",
+    "role": "Senior iOS Engineer",
+    "period": "Jun 2026 to present",
+    "details": [
+      "Own iOS development for a telecom app serving approximately 200,000 active users as its sole iOS engineer.",
+      "Fully implemented and shipped the iOS integrations for Apple Pay, direct card payments, and eKYC, working with vendor SDKs.",
+      "Reduced app launch time by approximately 80% and improved overall performance through optimization and refactoring.",
+      "Instrumented user journeys with Firebase Analytics and investigated vendor SDK integration failures."
+    ]
   },
   {
-    company: "maib",
-    role: "iOS Developer",
-    period: "Dec 2025 to May 2026",
-    details: [
-      "Led the in-app feedback integration.",
-      "Moved the customer AI chat from WebView to native UIKit and rewrote its networking layer.",
-    ],
+    "company": "maib",
+    "role": "iOS Engineer",
+    "period": "Dec 2025 to May 2026",
+    "details": [
+      "Led the in-app feedback integration for maibank, a banking app serving hundreds of thousands of users.",
+      "Migrated the customer AI chat from WebView to native UIKit and rewrote its networking layer."
+    ]
   },
   {
-    company: "Extole",
-    role: "Software Engineer",
-    period: "Sep 2023 to May 2026",
-    details: [
-      "Contributed to Go Extole and the iOS SDK, including mobile referral integrations and production fixes.",
-      "Improved CI/CD workflows and mentored student interns.",
-    ],
+    "company": "Extole",
+    "role": "Software Engineer",
+    "period": "Sep 2023 to May 2026",
+    "details": [
+      "Built reusable features for Go Extole, a configurable employee-referral app supporting client-specific programs.",
+      "Contributed to the mobile SDK, supported client integrations, and diagnosed and fixed referral-flow issues.",
+      "Improved CI/CD workflows and mentored student interns."
+    ]
   },
+  {
+    "company": "Freelance",
+    "role": "iOS Engineer",
+    "period": "Jan 2022 to Sep 2023",
+    "details": [
+      "Built health and fitness apps using Swift, SwiftUI, HealthKit, and Apple Watch for real-time biometric tracking.",
+      "Developed consumer apps with subscriptions, real-time synchronization, and interactive dashboards."
+    ]
+  }
 ];
 
 const skillGroups = [
@@ -130,6 +144,15 @@ const skillGroups = [
     title: "Firebase and delivery",
     skills: ["Firebase Analytics", "Performance Monitoring", "Remote Config", "CI/CD", "App Store Connect", "Xcode command-line tools"],
   },
+];
+
+// Named frameworks, SDK services and tools listed in the skills or projects.
+// Languages, architecture patterns and general practices are not counted here.
+const handsOnFrameworksAndTools = [
+  "SwiftUI", "UIKit", "SwiftData", "AppKit", "AVFoundation", "PassKit",
+  "WidgetKit", "CryptoKit", "PDFKit", "Core Motion", "XCTest", "Swift Testing",
+  "Firebase Analytics", "Firebase Performance Monitoring", "Firebase Remote Config",
+  "App Store Connect", "Xcode command-line tools",
 ];
 
 type ProjectScreenshot = {
@@ -329,7 +352,7 @@ export default function Home() {
             <p className="eyebrow hero-enter delay-1"><span /> Senior iOS Engineer · Chișinău</p>
             <h1 className="hero-enter delay-2">I build reliable products for <em>Apple platforms.</em></h1>
             <p className="hero-summary hero-enter delay-3">
-              I ship production iOS apps in SwiftUI and UIKit, from onboarding and payments to offline-first tools. I&apos;m open to remote roles and relocation.
+              I build apps and tools for Apple platforms. I&apos;m open to remote roles.
             </p>
             <div className="hero-actions hero-enter delay-4">
               <a className="button button-primary" href="#work">View projects <span>↓</span></a>
@@ -397,13 +420,13 @@ export default function Home() {
         <section className="stats-section" aria-label="Career statistics">
           <div className="stat-intro" data-reveal>
             <p className="eyebrow light"><span /> In numbers</p>
-            <h2>Evidence over adjectives.</h2>
+            <h2>A few numbers from my work.</h2>
           </div>
           <div className="stats-grid">
-            <AnimatedStat value={23} prefix="'" label="working in software since" />
-            <AnimatedStat value={8} label="products shipped to the App Store" />
+            <AnimatedStat value={22} prefix="'" label="working in software since" />
+            <AnimatedStat value={33} label="App Store products shipped or contributed to" />
+            <AnimatedStat value={handsOnFrameworksAndTools.length} label="frameworks and tools with hands-on experience" />
             <AnimatedStat value={3} label="hackathon awards and recognitions" />
-            <AnimatedStat value={33} label="public GitHub repositories" />
           </div>
         </section>
 
@@ -438,9 +461,9 @@ export default function Home() {
             </div>
             <div className="about-copy">
               <p className="eyebrow"><span /> About</p>
-              <h2>Product-minded.<br />Careful with the <em>details.</em></h2>
+              <h2>I like building apps<br />people can <em>rely on.</em></h2>
               <p>
-                I&apos;m Dragomir, a Senior iOS Engineer based in Chișinău. I work across SwiftUI and UIKit, with a focus on architecture, testing, accessibility, and the production details that keep an app dependable.
+                I&apos;m Dragomir, a Senior iOS Engineer based in Chișinău. I&apos;ve worked on telecom apps, mobile banking, and referral software at Moldcell, maib, and Extole. Outside work, I build my own apps and tools for Apple platforms.
               </p>
             </div>
           </div>
@@ -459,7 +482,7 @@ export default function Home() {
           <div className="contact-inner" data-reveal>
             <p className="eyebrow light"><span /> Get in touch</p>
             <h2>Looking for a <em>Senior iOS Engineer?</em></h2>
-            <p>I&apos;m open to remote roles and relocation opportunities where I can own meaningful iOS work and help ship a dependable product.</p>
+            <p>I&apos;m looking for a remote iOS role where I can take responsibility for features and keep improving the app after release.</p>
             <a className="contact-email" href="mailto:dmindrescu03@gmail.com">dmindrescu03@gmail.com <span>↗</span></a>
             <div className="contact-links">
               <a href={githubUrl} target="_blank" rel="noreferrer">GitHub ↗</a>

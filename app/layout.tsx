@@ -4,7 +4,7 @@ import { githubUrl, linkedinUrl, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const siteDescription =
-  "Portfolio of Dragomir Mîndrescu, a Senior iOS Engineer building production apps with Swift, SwiftUI, and UIKit. Open to remote roles and relocation.";
+  "Dragomir Mîndrescu is a Senior iOS Engineer building apps with Swift, SwiftUI, and UIKit. Explore his work, experience, and independent Apple apps. Open to remote roles.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

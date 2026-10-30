@@ -58,5 +58,15 @@
     "src": "/mockups/swiftbuilder/02.png?asset=cd785b5a1c1f",
     "width": 1406,
     "height": 2822
+  },
+  "/projects/wheelie/presets.png": {
+    "src": "/projects/wheelie/presets.png?asset=7f67d8a54dc5",
+    "width": 1826,
+    "height": 1752
+  },
+  "/projects/wheelie/wheel-capture.png": {
+    "src": "/projects/wheelie/wheel-capture.png?asset=f130de84e5e1",
+    "width": 1998,
+    "height": 1484
   }
 }

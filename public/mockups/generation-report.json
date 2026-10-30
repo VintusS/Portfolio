@@ -271,6 +271,18 @@
         448,
         88
       ]
+    },
+    {
+      "source": "/projects/wheelie/presets.png",
+      "sha256": "7f67d8a54dc51fbcaa4ca71c648f2480399678f718428044f32b5a5dddb099cc",
+      "kind": "desktop",
+      "note": "Preserved original macOS screenshot; not an iPhone capture."
+    },
+    {
+      "source": "/projects/wheelie/wheel-capture.png",
+      "sha256": "f130de84e5e17d3d62cdd9f5d871dc4624def6e1797ddbeb1f099763906d4914",
+      "kind": "desktop",
+      "note": "Preserved original macOS screenshot; not an iPhone capture."
     }
   ]
 }

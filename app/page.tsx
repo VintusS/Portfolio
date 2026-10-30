@@ -35,8 +35,24 @@ const projects = [
     ],
   },
   {
-    id: "swiftbuilder",
+    id: "wheelie",
     number: "02",
+    label: "Native macOS app",
+    title: "Wheelie",
+    headline: "Your Mac. Within reach.",
+    description:
+      "A native macOS launcher that puts apps, websites and Apple Shortcuts in a wheel at your pointer. Choose actions with a click or a hold-and-release gesture, customize Everyday, Work, Home and Study presets, and share wheel configurations as JSON. Built with SwiftUI and AppKit, with Liquid Glass and support for system appearance and accessibility preferences.",
+    tags: ["Swift", "SwiftUI", "AppKit", "App Intents", "Apple Shortcuts"],
+    links: [],
+    tone: "pearl",
+    screenshots: [
+      { src: "/projects/wheelie/wheel-capture.png", alt: "Wheelie launcher with the complete six-action wheel and Xcode selected", label: "Launcher wheel", kind: "wheel" },
+      { src: "/projects/wheelie/presets.png", alt: "Wheelie settings showing the Everyday starter preset", label: "Starter presets", kind: "presets" },
+    ],
+  },
+  {
+    id: "swiftbuilder",
+    number: "03",
     label: "macOS/iOS prototyping tool",
     title: "SwiftBuilder",
     headline: "Build the interface, then run the prototype.",
@@ -52,7 +68,7 @@ const projects = [
   },
   {
     id: "daily-swift",
-    number: "03",
+    number: "04",
     label: "Experimental open-source app",
     title: "Daily Swift",
     headline: "Turn your own material into Swift practice.",
@@ -69,7 +85,7 @@ const projects = [
   },
   {
     id: "poschore",
-    number: "04",
+    number: "05",
     label: "Shipped iOS app · App Store",
     title: "Poschore",
     headline: "A quiet reminder when posture starts to slip.",
@@ -167,9 +183,11 @@ function screenshotUrl(src: string, revision: number) {
 }
 
 function ProjectScreenshotGallery({ screenshots, title, revision }: { screenshots: ProjectScreenshot[]; title: string; revision: number }) {
+  const isWheelie = screenshots.some((screenshot) => screenshot.kind === "wheel");
+
   return (
     <div
-      className={`project-screenshot-gallery is-ready count-${screenshots.length}`}
+      className={`project-screenshot-gallery is-ready count-${screenshots.length}${isWheelie ? " is-wheelie" : ""}`}
       aria-label={`${title} screenshots`}
     >
       {screenshots.map((screenshot) => {
@@ -186,7 +204,7 @@ function ProjectScreenshotGallery({ screenshots, title, revision }: { screenshot
               alt={screenshot.alt}
               width={asset.width}
               height={asset.height}
-              sizes={screenshot.kind === "desktop" ? "(max-width: 600px) 80vw, 40vw" : "(max-width: 600px) 38vw, 16vw"}
+              sizes={isWheelie ? "(max-width: 600px) 80vw, 390px" : screenshot.kind === "desktop" ? "(max-width: 600px) 80vw, 40vw" : "(max-width: 600px) 38vw, 16vw"}
               unoptimized
               loading="lazy"
             />
@@ -377,7 +395,7 @@ export default function Home() {
           <div className="section-heading" data-reveal>
             <p className="eyebrow"><span /> Selected work</p>
             <h2>Products I&apos;ve shipped and tools I&apos;m building.</h2>
-            <p>Open-source work, App Store releases, and a prototyping tool built around practical iOS problems.</p>
+            <p>Open-source work, App Store releases, and a prototyping tool built around practical problems on Apple platforms.</p>
           </div>
 
           <div className="project-list">
@@ -391,13 +409,15 @@ export default function Home() {
                   <ul className="tag-list" aria-label={`${project.title} technologies`}>
                     {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
                   </ul>
-                  <div className="project-links" aria-label={`${project.title} links`}>
-                    {project.links.map((link) => (
-                      <a className="project-link" href={link.href} target="_blank" rel="noreferrer" key={link.href}>
-                        {link.label} <span>↗</span>
-                      </a>
-                    ))}
-                  </div>
+                  {project.links.length > 0 && (
+                    <div className="project-links" aria-label={`${project.title} links`}>
+                      {project.links.map((link) => (
+                        <a className="project-link" href={link.href} target="_blank" rel="noreferrer" key={link.href}>
+                          {link.label} <span>↗</span>
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div className={`project-visual tone-${project.tone}`}>
                   <ProjectScreenshotGallery screenshots={project.screenshots} title={project.title} revision={screenshotRevision} />

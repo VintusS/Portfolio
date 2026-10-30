@@ -17,6 +17,13 @@ Use PNG files at their original Simulator or device resolution. Crop private dat
 - `fitkate/02.png` — workout editor
 - `fitkate/03.png` — live session timer
 
+## Wheelie
+
+- `wheelie/wheel-capture.png` — authentic launcher wheel, shown as the primary visual
+- `wheelie/presets.png` — starter presets, shown as a smaller secondary image
+
+The page crops these unmodified desktop captures with CSS. See `wheelie/README.md` for replacement notes.
+
 ## SwiftBuilder
 
 - `swiftbuilder/01.png` — macOS workspace

@@ -703,6 +703,7 @@ footer a:hover {
 .tone-green { background: linear-gradient(145deg, #4aa878, #9bd7a7 50%, #daf1c8); }
 .tone-blue { background: linear-gradient(145deg, #568fd3, #a9d4f3 52%, #dceeff); }
 .tone-violet { background: linear-gradient(145deg, #7167c9, #afa9ec 52%, #e6e4fb); }
+.tone-pearl { background: linear-gradient(145deg, #fbfaf7, #f2f7fb 48%, #d9eafa); }
 
 .visual-shell {
   position: absolute;
@@ -797,6 +798,56 @@ footer a:hover {
   width: 27%;
   margin-left: -14%;
   transform: translateY(12%) rotate(4deg);
+}
+
+.project-screenshot-gallery.is-wheelie {
+  flex-direction: column;
+  gap: 18px;
+  padding: 32px 6%;
+}
+
+.is-wheelie .screenshot-wheel {
+  width: min(76%, 390px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: none;
+  filter: drop-shadow(0 16px 22px rgba(49, 69, 91, 0.15));
+}
+
+/* Crop the original 1998×1484 capture to an 888px square at (445, 357).
+   This retains the complete wheel; the circular viewport hides desktop chrome. */
+.is-wheelie .screenshot-wheel img {
+  position: absolute;
+  top: -40.202703%;
+  left: -50.112613%;
+  width: 225%;
+  max-width: none;
+  height: auto;
+}
+
+.is-wheelie .screenshot-presets {
+  align-self: flex-end;
+  width: min(36%, 230px);
+  aspect-ratio: 8 / 5;
+  margin-right: 4%;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(49, 69, 91, 0.13);
+}
+
+.project-screenshot-gallery.is-wheelie .screenshot-frame + .screenshot-frame {
+  margin-left: 0;
+}
+
+/* Only the starter-preset portion of the original settings window is shown.
+   The black outer padding and lower appearance panel remain outside the crop. */
+.is-wheelie .screenshot-presets img {
+  position: absolute;
+  top: -7.82936%;
+  left: -7.026349%;
+  width: 114.55458%;
+  max-width: none;
+  height: auto;
 }
 
 .phone-frame {
@@ -1718,6 +1769,9 @@ footer > a { justify-self: end; color: white; }
     width: 31%;
     margin-left: -20%;
   }
+  .project-screenshot-gallery.is-wheelie { padding-top: 24px; padding-bottom: 24px; }
+  .is-wheelie .screenshot-wheel { width: min(90%, 280px); }
+  .is-wheelie .screenshot-presets { width: min(46%, 170px); }
   .daily-visual { transform: scale(0.82); }
   .fit-watch { width: 74%; padding: 54px 22px; }
   .fit-watch > strong { font-size: 67px; }

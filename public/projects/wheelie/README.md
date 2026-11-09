@@ -5,4 +5,4 @@
 
 The crop coordinates live in the Wheelie-specific rules in `app/globals.css`; update them if replacement captures use different dimensions or positions. These are macOS captures, so the existing mockup generator registers them as desktop assets without adding iPhone frames.
 
-No release, download, or source links are displayed until a publicly accessible destination can be verified.
+The project card links to the public [Mac App Store listing](https://apps.apple.com/md/app/wheelie-radial-launcher/id6826375154?mt=12). No source link is displayed.

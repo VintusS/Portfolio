@@ -37,13 +37,15 @@ const projects = [
   {
     id: "wheelie",
     number: "02",
-    label: "Native macOS app",
-    title: "Wheelie",
+    label: "Shipped macOS app · App Store",
+    title: "Wheelie: Radial Launcher",
     headline: "Your Mac. Within reach.",
     description:
       "A native macOS launcher that puts apps, websites and Apple Shortcuts in a wheel at your pointer. Choose actions with a click or a hold-and-release gesture, customize Everyday, Work, Home and Study presets, and share wheel configurations as JSON. Built with SwiftUI and AppKit, with Liquid Glass and support for system appearance and accessibility preferences.",
     tags: ["Swift", "SwiftUI", "AppKit", "App Intents", "Apple Shortcuts"],
-    links: [],
+    links: [
+      { label: "Open in the App Store", href: "https://apps.apple.com/md/app/wheelie-radial-launcher/id6826375154?mt=12" },
+    ],
     tone: "pearl",
     screenshots: [
       { src: "/projects/wheelie/wheel-capture.png", alt: "Wheelie launcher with the complete six-action wheel and Xcode selected", label: "Launcher wheel", kind: "wheel" },
